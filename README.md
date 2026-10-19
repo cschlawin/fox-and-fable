@@ -15,7 +15,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 | Page | What's on it |
 |---|---|
 | `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
-| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), the featured family photo plus two family placeholders, brand story and values, consultation CTA |
+| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), two family photos (winter portrait + summer landscape), brand story and values, consultation CTA |
 | `gallery.html` | Nine slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets), then six photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
@@ -125,7 +125,6 @@ Double-check with `exiftool photo.jpg` (it should show no GPS, camera, or date f
 | Slot | Drop the file at | Aspect | Suggested size |
 |---|---|---|---|
 | Jessica's portrait | `assets/images/about/jessica.webp` (+ `.jpg`) | 4:5 portrait | 640 × 800 |
-| Extra family photos (2) | `assets/images/about/family-2.webp`, `family-3.webp` | 1:1 square | 800 × 800 |
 
 Then, in `about.html`:
 
@@ -137,7 +136,10 @@ Then, in `about.html`:
 
 Cody's headshot (`assets/images/about/cody.webp` / `.jpg`, 640 × 800) and the featured family photo
 (`assets/images/about/family.webp` / `.jpg`, 557 × 743, 3:4) have light touch-ups only (gentle levels, slight
-warmth, light sharpening) and are sRGB. All metadata was stripped. The family photo's alt text doesn't include the children's names. Keep it that way.
+warmth, light sharpening) and are sRGB. The summer photo (`family-summer.webp` / `.jpg`, 1200 × 800, 3:2) got only a
+very gentle levels pass and light sharpening; it's meant to look bright and backlit. It sits beside the winter portrait
+in a 1fr : 2fr grid so both photos are the same height. It's credited to the photographer in its caption, because
+the original carried a copyright notice that was removed with the rest of the metadata. All metadata was stripped. The family photo's alt text doesn't include the children's names. Keep it that way.
 
 ### Adding gallery photos (`gallery.html`)
 
