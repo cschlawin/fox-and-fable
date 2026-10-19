@@ -427,7 +427,7 @@ main:focus { outline: none; }
 .founder h2 { margin-bottom: var(--space-2); }
 .founder-role { font-size: 0.78rem; font-weight: 600; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--c-oak-deep); }
 .founder h3 { font-size: 1.5rem; margin-top: var(--space-5); }
-/* Fill-in prompts: obviously unfinished copy for Cody & Jessica to replace */
+/* Fill-in prompts: obviously unfinished copy for the family to replace */
 .prompt {
   margin-top: var(--space-2); padding: var(--space-3) var(--space-4);
   border: 1.5px dashed rgb(110 80 52 / 0.55); border-radius: var(--radius-sm);
@@ -437,7 +437,6 @@ main:focus { outline: none; }
   content: "Placeholder"; display: block; margin-bottom: 0.2rem; font-style: normal;
   font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-oak-deep);
 }
-.founder-secondary .photo { max-width: 320px; }
 .family-grid { display: grid; gap: var(--space-3); grid-template-columns: repeat(2, 1fr); }
 .story-band { background: var(--c-parchment-2); }
 .cta-band { background: var(--tex-iron), var(--c-ink); color: var(--c-on-dark); text-align: center; }
@@ -538,7 +537,6 @@ main:focus { outline: none; }
   .teaser-grid { grid-template-columns: 4fr 3fr 3fr; } /* 4:3 + two 1:1 tiles share one height */
   .teaser-grid figure:first-child { grid-column: auto; }
   .founder { grid-template-columns: minmax(240px, 0.8fr) 1.2fr; gap: var(--space-6); }
-  .founder-secondary { grid-template-columns: minmax(200px, 0.5fr) 1.5fr; }
 
 }
 

@@ -4,7 +4,7 @@ A hand-coded, responsive three-page site for **Fox & Fable, LLC**, a concept-sta
 Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk rooms.
 **Fox & Fable Design + Construction.** *Playful Spaces. Timeless Memories.*
 
-> **Status:** design mockup / portfolio project. Apart from Cody's headshot, all imagery is placeholder art.
+> **Status:** design mockup / portfolio project. Apart from the family photos and finished project media, all imagery is placeholder art.
 > Bios are fill-in prompts, the contact email is a placeholder, and the consultation form validates in the
 > browser but does not send anything.
 
@@ -15,7 +15,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 | Page | What's on it |
 |---|---|
 | `index.html` | Hero with the logo, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
-| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
+| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
 | `gallery.html` | Nine slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), two photo-set projects (a built-in playhouse with a before photo, and a stone-wall primary bedroom), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
@@ -51,7 +51,7 @@ site/
 │   ├── video/                # Self-hosted MP4 (H.264/AAC) + WebM (VP9/Opus) pairs, metadata stripped
 │   └── images/
 │       ├── placeholders/     # landscape / portrait / square placeholder art
-│       ├── about/            # cody.*, family.* (Jessica's portrait goes here)
+│       ├── about/            # family.*, family-snow.*, family-summer.* (Jessica's portrait goes here)
 │       └── gallery/          # video posters + project photos
 ├── tools/build-logo-assets.py # Rebuilds every logo/icon asset from the original (needs: pip install pillow numpy scipy)
 ├── docs/                     # README screenshot; brand-reference/ holds the original logo artwork (plus the retired badge)
@@ -129,13 +129,13 @@ Double-check with `exiftool photo.jpg` (it should show no GPS, camera, or date f
 Then, in `about.html`:
 
 1. Change the `<img src>` from `assets/images/placeholders/…svg` to the new file. Use `<picture>` with a WebP
-   `<source>` and a JPEG fallback, following Cody's portrait markup.
+   `<source>` and a JPEG fallback, following the family photo markup.
 2. Update `width`/`height` to the real pixel size. This prevents layout shift.
 3. Replace the `alt` with a real description, e.g. `alt="Jessica in the Fox & Fable workshop"`.
 4. Delete the `<span class="ph-label">…</span>` line, and replace the `[bracketed]` prompt text and role.
 
-Cody's headshot (`assets/images/about/cody.webp` / `.jpg`, 640 × 800) and the featured family photo
-(`assets/images/about/family.webp` / `.jpg`, 557 × 743, 3:4) have light touch-ups only (gentle levels, slight
+The featured family photo
+(`assets/images/about/family.webp` / `.jpg`, 557 × 743, 3:4) has light touch-ups only (gentle levels, slight
 warmth, light sharpening) and are sRGB. The summer photo (`family-summer.webp` / `.jpg`, 1200 × 800, 3:2) got only a
 very gentle levels pass and light sharpening; it's meant to look bright and backlit. It sits beside the winter portrait
 in a 1fr : 2fr grid so both photos are the same height. It's credited to the photographer in its caption, because
