@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Security: strict CSP. Everything (scripts, styles, fonts, images) is self-hosted.
+       frame-ancestors cannot be set via <meta>; it is sent as an HTTP header in _headers. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Fox &amp; Fable | Bespoke Playhouses &amp; Bunk Rooms, Kaysville UT</title>
+  <meta name="description" content="Fox &amp; Fable designs and builds heirloom-quality indoor playhouses and bunk rooms in Kaysville, Utah. Story-First design for families, interior designers, and commercial spaces across Davis County and Northern Utah.">
+  <meta name="theme-color" content="#1F3A2E">
+  <link rel="canonical" href="https://www.foxandfable.com/">
+
+  <!-- Open Graph / social preview (domain is a placeholder) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fox &amp; Fable">
+  <meta property="og:title" content="Fox &amp; Fable | Worlds within worlds">
+  <meta property="og:description" content="Bespoke, heirloom-quality indoor playhouses and bunk rooms, designed Story-First and crafted in Kaysville, Utah.">
+  <meta property="og:url" content="https://www.foxandfable.com/">
+  <meta property="og:image" content="https://www.foxandfable.com/assets/og-image.png">
+  <meta property="og:image:alt" content="Fox &amp; Fable fox logo with the tagline Worlds within worlds">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Loaded (not deferred) so it can swap .no-js → .js before first paint; DOM work waits for DOMContentLoaded. -->
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===================== Header / Navigation ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Fox &amp; Fable home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fox"></use></svg>
+        <span class="brand-word">Fox <span class="amp">&amp;</span> Fable</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#worlds">Worlds</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#designers">For Designers</a></li>
+          <li><a href="#commercial">Commercial</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="nav-cta-item"><a class="btn btn-primary btn-sm" href="#consult">Book a Consultation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ===================== Hero ===================== -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Bespoke playhouses &amp; bunk rooms · Kaysville, Utah</p>
+          <h1 id="hero-title">Worlds within <em>worlds.</em></h1>
+          <p class="lede">Heirloom-quality indoor playhouses and bunk rooms, designed Story-First and crafted to sit as gracefully in your home as the finest piece of furniture.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#consult">Book a Consultation</a>
+            <a class="btn btn-ghost" href="#worlds">Explore the Worlds</a>
+          </div>
+          <p class="hero-note">Projects from $5,000 · Serving Davis County &amp; Northern Utah</p>
+        </div>
+
+        <figure class="hero-art">
+          <svg viewBox="0 0 560 480" role="img" aria-labelledby="hero-art-title">
+            <title id="hero-art-title">Illustration of a small storybook playhouse nestled inside the outline of a larger family home</title>
+            <defs>
+              <linearGradient id="g-hero" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#E9DFCB"/><stop offset="1" stop-color="#F7F1E6"/>
+              </linearGradient>
+            </defs>
+            <rect width="560" height="480" rx="28" fill="url(#g-hero)"/>
+            <!-- Outer home outline -->
+            <path d="M60 210 L280 60 L500 210 V430 H60 Z" fill="none" stroke="#1F3A2E" stroke-width="3"/>
+            <!-- Window light -->
+            <rect x="370" y="240" width="80" height="110" rx="40" fill="#F4E3C8" stroke="#1F3A2E" stroke-width="2"/>
+            <path d="M410 240 V350 M370 300 H450" stroke="#1F3A2E" stroke-width="2"/>
+            <!-- Rug -->
+            <ellipse cx="230" cy="420" rx="150" ry="16" fill="#C9D3BF"/>
+            <!-- Inner playhouse -->
+            <path d="M130 270 L230 190 L330 270 Z" fill="#C2582B"/>
+            <path d="M210 205 V180 H230 V200" fill="#8E3B1A"/>
+            <rect x="145" y="270" width="170" height="145" fill="#1F3A2E"/>
+            <path d="M205 415 V350 a25 25 0 0 1 50 0 V415 Z" fill="#F4E3C8"/>
+            <circle cx="230" cy="300" r="16" fill="#F4E3C8"/>
+            <path d="M230 284 V316 M214 300 H246" stroke="#1F3A2E" stroke-width="2"/>
+            <rect x="160" y="360" width="30" height="34" rx="4" fill="#E9B8A8"/>
+            <rect x="270" y="360" width="30" height="34" rx="4" fill="#E9B8A8"/>
+            <!-- Little fox at the door -->
+            <g transform="translate(322 380) scale(.62)"><use href="#fox" width="64" height="64"/></g>
+            <!-- Stars -->
+            <g fill="#C2582B"><circle cx="120" cy="150" r="3"/><circle cx="440" cy="150" r="3"/><circle cx="470" cy="110" r="2"/><circle cx="90" cy="120" r="2"/></g>
+          </svg>
+          <figcaption class="placeholder-tag">Illustration · Photo placeholder</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== Featured Worlds ===================== -->
+    <section id="worlds" class="section worlds" aria-labelledby="worlds-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Featured Worlds</p>
+          <h2 id="worlds-title">Every structure begins with a story.</h2>
+          <p>Our signature worlds are starting points, not catalog items. Each one is reimagined around your child, your room, and your home's architecture.</p>
+        </header>
+
+        <ul class="world-grid list-reset">
+          <li class="world-card">
+            <figure class="world-art">
+              <svg viewBox="0 0 400 280" aria-hidden="true" focusable="false">
+                <defs><linearGradient id="g-attic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2C4A3B"/><stop offset="1" stop-color="#1F3A2E"/></linearGradient></defs>
+                <rect width="400" height="280" fill="url(#g-attic)"/>
+                <g fill="#F4E3C8" opacity=".8"><circle cx="60" cy="50" r="2"/><circle cx="330" cy="40" r="2.5"/><circle cx="300" cy="90" r="1.5"/><circle cx="90" cy="110" r="1.5"/><circle cx="350" cy="130" r="2"/></g>
+                <path d="M120 250 V140 L200 60 L280 140 V250 Z" fill="#C2582B"/>
+                <circle cx="200" cy="130" r="22" fill="#F4E3C8"/><path d="M200 108 V152 M178 130 H222" stroke="#8E3B1A" stroke-width="3"/>
+                <path d="M180 250 V200 a20 20 0 0 1 40 0 V250 Z" fill="#1F3A2E"/>
+                <path d="M300 250 l10 -30 h12 l10 30 z" fill="#E9B8A8"/><rect x="312" y="208" width="8" height="12" fill="#E9B8A8"/>
+                <rect x="0" y="250" width="400" height="30" fill="#16291F"/>
+              </svg>
+              <figcaption class="placeholder-tag">Photo placeholder</figcaption>
+            </figure>
+            <div class="world-body">
+              <h3>The Alchemist's Attic</h3>
+              <p>A peaked loft of copper, glass, and star charts, where shelves of curious bottles hold crayons instead of potions and every round window looks out on a new experiment.</p>
+            </div>
+          </li>
+
+          <li class="world-card">
+            <figure class="world-art">
+              <svg viewBox="0 0 400 280" aria-hidden="true" focusable="false">
+                <defs><linearGradient id="g-meadow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4E3C8"/><stop offset="1" stop-color="#DCE3D2"/></linearGradient></defs>
+                <rect width="400" height="280" fill="url(#g-meadow)"/>
+                <circle cx="320" cy="70" r="26" fill="#E9B8A8"/>
+                <path d="M100 130 L300 105 V250 H100 Z" fill="#F7F1E6" stroke="#1F3A2E" stroke-width="3"/>
+                <rect x="125" y="155" width="70" height="50" fill="#9DB08C"/><rect x="215" y="150" width="40" height="100" fill="#C2582B"/>
+                <path d="M100 250 h200" stroke="#1F3A2E" stroke-width="3"/>
+                <circle cx="60" cy="200" r="30" fill="#9DB08C"/><rect x="57" y="215" width="6" height="40" fill="#1F3A2E"/>
+                <circle cx="345" cy="210" r="22" fill="#7E9A72"/><rect x="342" y="222" width="6" height="32" fill="#1F3A2E"/>
+                <rect x="0" y="250" width="400" height="30" fill="#C9D3BF"/>
+              </svg>
+              <figcaption class="placeholder-tag">Photo placeholder</figcaption>
+            </figure>
+            <div class="world-body">
+              <h3>The Mid-Century Meadow</h3>
+              <p>Clean, slanted lines and walnut warmth meet a wildflower palette, a playhouse that feels at home beside an Eames chair while still hiding a secret reading nook.</p>
+            </div>
+          </li>
+
+          <li class="world-card">
+            <figure class="world-art">
+              <svg viewBox="0 0 400 280" aria-hidden="true" focusable="false">
+                <defs><linearGradient id="g-hollow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0D9C2"/><stop offset="1" stop-color="#E7C3A2"/></linearGradient></defs>
+                <rect width="400" height="280" fill="url(#g-hollow)"/>
+                <path d="M130 250 C125 170 140 110 200 70 C260 110 275 170 270 250 Z" fill="#8E3B1A"/>
+                <path d="M175 250 V195 a25 25 0 0 1 50 0 V250 Z" fill="#F4E3C8"/>
+                <circle cx="200" cy="135" r="14" fill="#F4E3C8"/>
+                <path d="M60 250 q10 -50 30 -60 M80 250 q0 -40 -20 -55 M330 250 q10 -45 30 -55 M345 250 q-5 -35 -25 -45" stroke="#1F3A2E" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <g transform="translate(232 214) scale(.55)"><use href="#fox" width="64" height="64"/></g>
+                <rect x="0" y="250" width="400" height="30" fill="#1F3A2E"/>
+              </svg>
+              <figcaption class="placeholder-tag">Photo placeholder</figcaption>
+            </figure>
+            <div class="world-body">
+              <h3>The Fox's Hollow</h3>
+              <p>A hand-carved tree-trunk den with an arched door and a lantern-lit burrow inside, the cozy hideaway where our namesake fox would keep its favorite fables.</p>
+            </div>
+          </li>
+
+          <li class="world-card">
+            <figure class="world-art">
+              <svg viewBox="0 0 400 280" aria-hidden="true" focusable="false">
+                <defs><linearGradient id="g-cloud" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3D9D2"/><stop offset="1" stop-color="#F7F1E6"/></linearGradient></defs>
+                <rect width="400" height="280" fill="url(#g-cloud)"/>
+                <g fill="#FFFFFF"><ellipse cx="90" cy="70" rx="45" ry="16"/><ellipse cx="115" cy="58" rx="28" ry="16"/><ellipse cx="310" cy="95" rx="50" ry="16"/><ellipse cx="290" cy="82" rx="28" ry="15"/></g>
+                <rect x="130" y="120" width="160" height="40" rx="6" fill="#F7F1E6" stroke="#1F3A2E" stroke-width="3"/>
+                <rect x="130" y="200" width="160" height="40" rx="6" fill="#F7F1E6" stroke="#1F3A2E" stroke-width="3"/>
+                <path d="M140 120 V250 M280 120 V250" stroke="#1F3A2E" stroke-width="5"/>
+                <path d="M300 120 V250 M325 120 V250 M300 145 h25 M300 175 h25 M300 205 h25 M300 235 h25" stroke="#C2582B" stroke-width="4"/>
+                <rect x="150" y="132" width="40" height="16" rx="8" fill="#E9B8A8"/><rect x="150" y="212" width="40" height="16" rx="8" fill="#C9D3BF"/>
+                <rect x="0" y="250" width="400" height="30" fill="#E9B8A8"/>
+              </svg>
+              <figcaption class="placeholder-tag">Photo placeholder</figcaption>
+            </figure>
+            <div class="world-body">
+              <h3>The Cloud Atelier</h3>
+              <p>A blush-and-ivory bunk room for little artists, with stacked cloud berths, a rope-and-rail ladder, and a skylit studio corner for painting the day's daydreams.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Process ===================== -->
+    <section id="process" class="section process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">The Story-First Process</p>
+          <h2 id="process-title">From first sketch to first adventure.</h2>
+        </header>
+
+        <ol class="timeline">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>Design <span class="step-time">About 2 weeks</span></h3>
+            <p>We start with a consultation to learn your child's imagination and your home's style, then present a 3D rendering of the structure in your actual room.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Workshop Build <span class="step-time">4–6 weeks</span></h3>
+            <p>Your world is crafted locally in our Kaysville workshop on a modular frame, with joinery, finishes, and hand-painted details done by hand.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Installation <span class="step-time">Typically 1–3 days</span></h3>
+            <p>Our carpenters assemble everything on-site, complete final safety checks, and deliver a curated Story Kit of books and toys matched to your theme.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== Why / Values ===================== -->
+    <section id="about" class="section values" aria-labelledby="values-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Why Fox &amp; Fable</p>
+          <h2 id="values-title">Built like architecture. Loved like a storybook.</h2>
+          <p>Our mission is to build worlds within worlds that foster creativity, independence, and aesthetic harmony in the modern home. A Kaysville, Utah company, we design and build every piece for families across Davis County and Northern Utah.</p>
+        </header>
+
+        <ul class="value-grid list-reset">
+          <li class="value">
+            <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 38 L30 18 M28 10 l10 10 -6 6 -10 -10 z M8 40 l4 -2 -2 -2 z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <h3>Artisan craftsmanship</h3>
+            <p>Solid hardwoods, real joinery, and hand-finished details made to be passed down.</p>
+          </li>
+          <li class="value">
+            <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 40 C10 32 10 16 24 8 C38 16 38 32 24 40 Z M24 40 V18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <h3>Non-toxic sustainability</h3>
+            <p>Responsibly sourced wood and low-VOC, child-safe paints and finishes.</p>
+          </li>
+          <li class="value">
+            <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6 L38 12 V24 C38 32 32 38 24 42 C16 38 10 32 10 24 V12 Z M18 24 l4 4 8 -8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <h3>Child-centered safety</h3>
+            <p>Rounded edges, secure anchoring, and a final safety check on every install.</p>
+          </li>
+          <li class="value">
+            <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 22 L24 8 L42 22 M10 20 V40 H38 V20 M20 40 V28 H28 V40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <h3>Architectural integrity</h3>
+            <p>Designed to your room's proportions so it reads as part of the house, not an add-on.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== For Designers ===================== -->
+    <section id="designers" class="section designers" aria-labelledby="designers-title">
+      <div class="container split">
+        <div>
+          <p class="eyebrow eyebrow-light">For Designers &amp; Builders</p>
+          <h2 id="designers-title">A trade partner for the room your client's children will remember.</h2>
+          <p>Interior designers and luxury home builders bring us in when a project calls for custom play that matches the rest of the home. We work from your palette, materials, and drawings, and coordinate with your schedule.</p>
+          <a class="btn btn-light" href="#consult">Join the Trade Program</a>
+        </div>
+        <ul class="trade-cards list-reset">
+          <li class="trade-card">
+            <p class="trade-figure">10%</p>
+            <h3>Referral commission</h3>
+            <p>Introduce a client and earn 10% of the project when it moves forward.</p>
+          </li>
+          <li class="trade-card">
+            <p class="trade-figure">15%</p>
+            <h3>Trade discount</h3>
+            <p>Purchase for your client directly at 15% off and manage the relationship your way.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Commercial ===================== -->
+    <section id="commercial" class="section commercial" aria-labelledby="commercial-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Commercial Spaces</p>
+          <h2 id="commercial-title">An experiential anchor for spaces that welcome families.</h2>
+        </header>
+        <ul class="commercial-grid list-reset">
+          <li class="commercial-card">
+            <h3>Boutique hotels</h3>
+            <p>A signature family suite or lobby nook that guests seek out by name.</p>
+          </li>
+          <li class="commercial-card">
+            <h3>Pediatric clinics</h3>
+            <p>Calming, story-rich waiting areas built to commercial durability and cleaning standards.</p>
+          </li>
+          <li class="commercial-card">
+            <h3>Private schools</h3>
+            <p>Reading lofts and imaginative play spaces designed around how classrooms actually work.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Behind the Build ===================== -->
+    <section class="section build" aria-labelledby="build-title">
+      <div class="container">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">Behind-the-Build</p>
+            <h2 id="build-title">Follow the craft from timber to tale.</h2>
+          </div>
+          <p class="build-links">Short films of woodturning, hand-painting, and precision joinery on <a href="#" rel="noopener noreferrer" aria-label="Instagram (placeholder link)">Instagram</a> and <a href="#" rel="noopener noreferrer" aria-label="Pinterest (placeholder link)">Pinterest</a>.</p>
+        </header>
+        <ul class="build-strip list-reset">
+          <li class="build-tile tile-a"><span class="tile-label">Woodturning</span><span class="placeholder-tag">Video placeholder</span></li>
+          <li class="build-tile tile-b"><span class="tile-label">Hand-painting</span><span class="placeholder-tag">Video placeholder</span></li>
+          <li class="build-tile tile-c"><span class="tile-label">Joinery</span><span class="placeholder-tag">Video placeholder</span></li>
+          <li class="build-tile tile-d"><span class="tile-label">Installation day</span><span class="placeholder-tag">Video placeholder</span></li>
+        </ul>
+
+        <figure class="testimonial-slot">
+          <blockquote><p>Client testimonial will appear here once our first projects are complete.</p></blockquote>
+          <figcaption class="placeholder-tag">Testimonial placeholder</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== Consultation Form ===================== -->
+    <section id="consult" class="section consult" aria-labelledby="consult-title">
+      <div class="container split split-form">
+        <div class="consult-intro">
+          <p class="eyebrow">Book a Consultation</p>
+          <h2 id="consult-title">Tell us about the world you're imagining.</h2>
+          <p>Share a few details and we'll follow up to schedule a design consultation, in your home or virtually. Projects start at $5,000.</p>
+          <p class="mockup-note" role="note"><strong>Design mockup:</strong> this form checks your entries in the browser but does not send them anywhere yet.</p>
+        </div>
+
+        <form class="consult-form" id="consult-form" method="post" novalidate>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input id="name" name="name" type="text" maxlength="80" autocomplete="name" required aria-describedby="name-error">
+              <p class="field-error" id="name-error"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" maxlength="254" inputmode="email" autocomplete="email" required aria-describedby="email-error">
+              <p class="field-error" id="email-error"></p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input id="phone" name="phone" type="tel" maxlength="20" pattern="[0-9+()\-. ]{7,20}" inputmode="tel" autocomplete="tel" aria-describedby="phone-error">
+              <p class="field-error" id="phone-error"></p>
+            </div>
+            <div class="field">
+              <label for="city">City <span class="req" aria-hidden="true">*</span></label>
+              <input id="city" name="city" type="text" maxlength="60" autocomplete="address-level2" placeholder="e.g. Kaysville" required aria-describedby="city-error">
+              <p class="field-error" id="city-error"></p>
+            </div>
+            <div class="field">
+              <label for="room">Room type <span class="req" aria-hidden="true">*</span></label>
+              <select id="room" name="room" required aria-describedby="room-error">
+                <option value="">Choose a room</option>
+                <option>Playroom</option>
+                <option>Bedroom</option>
+                <option>Bunk room</option>
+                <option>Basement or bonus room</option>
+                <option>Living area</option>
+                <option>Commercial space</option>
+                <option>Other</option>
+              </select>
+              <p class="field-error" id="room-error"></p>
+            </div>
+            <div class="field">
+              <label for="project">Project type <span class="req" aria-hidden="true">*</span></label>
+              <select id="project" name="project" required aria-describedby="project-error">
+                <option value="">Choose a project</option>
+                <option>Indoor playhouse</option>
+                <option>Bunk room</option>
+                <option>Reading nook or loft</option>
+                <option>Commercial installation</option>
+                <option>Designer or builder trade project</option>
+                <option>Not sure yet</option>
+              </select>
+              <p class="field-error" id="project-error"></p>
+            </div>
+            <div class="field">
+              <label for="budget">Budget range <span class="req" aria-hidden="true">*</span></label>
+              <select id="budget" name="budget" required aria-describedby="budget-error">
+                <option value="">Choose a range</option>
+                <option>$5,000–$10,000</option>
+                <option>$10,000–$20,000</option>
+                <option>$20,000–$35,000</option>
+                <option>$35,000+</option>
+              </select>
+              <p class="field-error" id="budget-error"></p>
+            </div>
+            <div class="field">
+              <label for="timeline">Ideal timeline <span class="req" aria-hidden="true">*</span></label>
+              <select id="timeline" name="timeline" required aria-describedby="timeline-error">
+                <option value="">Choose a timeline</option>
+                <option>As soon as possible</option>
+                <option>In 2–3 months</option>
+                <option>In 3–6 months</option>
+                <option>Just exploring</option>
+              </select>
+              <p class="field-error" id="timeline-error"></p>
+            </div>
+            <div class="field field-full">
+              <label for="message">Tell us your story <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="4" maxlength="2000" aria-describedby="message-count message-error" placeholder="Who is it for, what do they love, and what does the room look like today?"></textarea>
+              <p class="field-error" id="message-error"></p>
+              <p class="field-hint" id="message-count">0 / 2000 characters</p>
+            </div>
+          </div>
+
+          <!-- Honeypot: hidden from people and assistive tech; bots that fill it are ignored -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Request a Consultation</button>
+          <p class="form-fineprint"><span class="req" aria-hidden="true">*</span> Required field</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand-light" href="#top" aria-label="Fox &amp; Fable, back to top">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fox"></use></svg>
+          <span class="brand-word">Fox <span class="amp">&amp;</span> Fable</span>
+        </a>
+        <p>Bespoke indoor playhouses &amp; bunk rooms. Worlds within worlds.</p>
+      </div>
+      <address class="footer-contact">
+        Kaysville, Utah<br>
+        Serving Davis County &amp; Northern Utah<br>
+        <a href="mailto:hello@foxandfable.com">hello@foxandfable.com</a> <span class="placeholder-inline">(placeholder)</span>
+      </address>
+      <ul class="social list-reset">
+        <li><a href="#" rel="noopener noreferrer" aria-label="Fox &amp; Fable on Instagram (placeholder link)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a></li>
+        <li><a href="#" rel="noopener noreferrer" aria-label="Fox &amp; Fable on Pinterest (placeholder link)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 8.5c3-1 5 .8 4.5 3.2-.4 2-2.4 3-3.8 2.2M12 10.5 9.8 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </a></li>
+      </ul>
+    </div>
+    <div class="container footer-base">
+      <p>© <span id="year">2026</span> Fox &amp; Fable, LLC · Kaysville, UT</p>
+      <p>Design mockup. Images and contact details are placeholders.</p>
+    </div>
+  </footer>
+
+  <!-- Shared SVG symbol: fox mark (used by the logo and illustrations) -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="fox" viewBox="0 0 64 64">
+      <path d="M8 6 L24 22 H40 L56 6 L54 34 L32 58 L10 34 Z" fill="#C2582B"/>
+      <path d="M10 34 L24 36 L32 46 L40 36 L54 34 L32 58 Z" fill="#F7F1E6"/>
+      <path d="M14 13 L22 22 L15 26 Z M50 13 L42 22 L49 26 Z" fill="#8E3B1A"/>
+      <circle cx="24" cy="30" r="2.2" fill="#1F3A2E"/>
+      <circle cx="40" cy="30" r="2.2" fill="#1F3A2E"/>
+      <path d="M29 54 L35 54 L32 58 Z" fill="#1F3A2E"/>
+    </symbol>
+  </svg>
+</body>
+</html>
