@@ -20,13 +20,15 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 
 ## Features
 
-- **Fine-line fox logo** (October 2026 rebrand). The original artwork lives in `docs/brand-reference/`, and
-  `tools/build-logo-assets.py` builds the web assets from it into `assets/logo/`: a full lockup for the hero
-  (WebP + PNG, 480/960 `srcset`), a light-line fox + wordmark for the charcoal footer, a compact fox mark for the nav
-  (1x/2x) beside the live-text wordmark, a "burned" fox for the oak brand stamp, plus the favicon set
-  (`favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`) and the 1200×630
-  Open Graph image. The off-white background is keyed to clean transparency so the hair-thin lines stay intact on
-  any background. The logo stays raster because the artwork's tapered, gradient strokes don't survive a trace cleanly.
+- **FF monogram logo** (October 2026). The originals live in `docs/brand-reference/`: the primary lockup
+  (`fox-and-fable-logo-original.png`) and the brand sheet (`fox-and-fable-brand-sheet.png`). `tools/build-logo-assets.py`
+  builds the web assets into `assets/logo/`: the full lockup for the hero card (WebP + PNG, 520/1040 `srcset`, on the
+  artwork's own paper with a matching `#F0ECE5` card), the FF + fox monogram for the nav (1x/2x/3x, keyed to
+  transparency) beside the live-text wordmark, the horizontal light lockup from the brand sheet for the charcoal footer
+  (keyed off its olive panel so there's no box edge), a "burned" monogram for the oak brand stamp, plus the favicon
+  set (`favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`) and the 1200×630
+  Open Graph image. The engraved artwork stays raster; it would not survive a vector trace. Earlier logos are kept as
+  `docs/brand-reference/previous-*`.
 - **Shared header and footer** on every page, with `aria-current="page"` on the active link.
 - **Mobile navigation** with an accessible toggle (`aria-expanded`; it closes on link click, on Escape, and on resize).
 - **Client-side form validation** with friendly inline messages, a live character counter, and a success state.
@@ -45,7 +47,7 @@ site/
 ├── css/styles.css            # Mobile-first stylesheet built on design tokens
 ├── js/main.js                # Nav, form validation, gallery filters + lightbox
 ├── assets/
-│   ├── logo/                 # Generated logo assets (lockup, light footer lockup, nav fox, burned fox), WebP + PNG
+│   ├── logo/                 # Generated logo assets (hero lockup, footer horizontal lockup, nav monogram, burned monogram), WebP + PNG
 │   ├── favicon.ico, favicon-32.png, apple-touch-icon.png, icon-192.png, icon-512.png, og-image.png
 │   ├── fonts/                # Self-hosted Cormorant Garamond + Inter (woff2) + OFL licenses
 │   ├── video/                # Self-hosted MP4 (H.264/AAC) + WebM (VP9/Opus) pairs, metadata stripped
@@ -54,7 +56,7 @@ site/
 │       ├── about/            # family.*, family-snow.*, family-summer.* (Jessica's portrait goes here)
 │       └── gallery/          # video posters + project photos
 ├── tools/build-logo-assets.py # Rebuilds every logo/icon asset from the original (needs: pip install pillow numpy scipy)
-├── docs/                     # README screenshot; brand-reference/ holds the original logo artwork (plus the retired badge)
+├── docs/                     # README screenshot; brand-reference/ holds the logo artwork and brand sheet (plus previous logos)
 ├── _headers, robots.txt, sitemap.xml, site.webmanifest
 └── README.md, SECURITY.md, LICENSE
 ```
@@ -285,7 +287,7 @@ Netlify Forms, or a serverless function) with **server-side validation and sanit
 ## Maintenance notes
 
 - The header and footer are repeated in each page, because this is a no-build static site. When you change one, change all three.
-- To change the logo, replace `docs/brand-reference/fox-and-fable-logo-original.png` and run `python3 tools/build-logo-assets.py`
+- To change the logo, replace the files in `docs/brand-reference/` and run `python3 tools/build-logo-assets.py`
   (adjust the crop boxes at the top of the script if the layout changed). The old badge generator `tools/build-logo.py`
   and its SVGs were retired in the October 2026 rebrand.
 

@@ -200,7 +200,7 @@ main:focus { outline: none; }
 .brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--c-ink); }
 .brand:hover { color: var(--c-ink); }
 .brand picture { display: contents; }
-.brand-mark { width: 37px; height: 52px; flex: none; }
+.brand-mark { width: 42px; height: 52px; flex: none; }
 .brand-amp { color: var(--c-oak-deep); font-weight: 500; }
 .brand-word {
   font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600;
@@ -249,13 +249,13 @@ main:focus { outline: none; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
 .hero-note { margin-top: var(--space-4); font-size: var(--fs-300); color: var(--c-iron); }
 .hero-art { display: grid; gap: var(--space-2); justify-items: center; }
-/* New logo lockup on a cream card (the artwork's own off-white) */
+/* Logo lockup on a cream card that matches the artwork's paper (#F0ECE5) */
 .logo-panel {
   display: grid; place-items: center; width: 100%; max-width: 520px;
-  padding: 12% 8%; border-radius: var(--radius-lg); background: #fcfaf6;
+  padding: 10% 6%; border-radius: var(--radius-lg); background: #f0ece5;
   box-shadow: var(--shadow), inset 0 0 0 1px rgb(138 90 46 / 0.12);
 }
-.hero-logo { width: 100%; max-width: 440px; height: auto; }
+.hero-logo { display: block; width: 100%; max-width: 460px; height: auto; }
 
 .page-hero { padding-block: var(--space-6) var(--space-5); }
 .page-hero .lede { max-width: 40rem; }
@@ -490,17 +490,12 @@ main:focus { outline: none; }
 .site-footer a { color: var(--c-parchment); }
 .footer-grid { display: grid; gap: var(--space-5); padding-bottom: var(--space-5); }
 .footer-logo-link { display: inline-block; }
-.footer-logo { display: block; width: 260px; max-width: 100%; height: auto; }
-.footer-descriptor {
-  margin-top: var(--space-3); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.32em;
-  text-transform: uppercase; color: var(--c-parchment);
-}
+.footer-logo { display: block; width: 340px; max-width: 100%; height: auto; }
 .footer-tagline {
   margin-top: var(--space-3); font-size: 0.75rem; font-weight: 600; letter-spacing: var(--track-caps);
   text-transform: uppercase; color: var(--c-oak-light);
 }
-.footer-descriptor + .footer-tagline { margin-top: var(--space-2); }
-.footer-brand p:not(.footer-tagline):not(.footer-descriptor) { margin-top: var(--space-2); max-width: 22rem; }
+.footer-brand p:not(.footer-tagline) { margin-top: var(--space-2); max-width: 22rem; }
 .footer-nav ul { display: grid; gap: 0.35rem; }
 .footer-nav a { text-decoration: none; }
 .footer-nav a:hover { text-decoration: underline; }
