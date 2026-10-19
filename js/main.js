@@ -4,6 +4,7 @@
  *  1. Progressive-enhancement flag (.no-js → .js)
  *  2. Mobile navigation toggle
  *  3. Consultation form: client-side validation + mockup success state
+ *  4. Gallery: category filters + accessible <dialog> lightbox
  *
  * Security notes:
  *  - User input is only ever written to the page with textContent, never innerHTML.
@@ -19,6 +20,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
     initForm();
+    initGallery();
     var year = document.getElementById("year");
     if (year) year.textContent = String(new Date().getFullYear());
   });
@@ -50,7 +52,7 @@
         toggle.focus();
       }
     });
-    window.matchMedia("(min-width: 1024px)").addEventListener("change", function (mq) {
+    window.matchMedia("(min-width: 1100px)").addEventListener("change", function (mq) {
       if (mq.matches) setOpen(false);
     });
   }
@@ -165,5 +167,106 @@
     field.removeAttribute("aria-invalid");
     if (error) error.textContent = "";
     return true;
+  }
+
+  // 4. Gallery -----------------------------------------------------------------
+  // Markup contract (gallery.html): each project is
+  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|commercial">
+  //     <a class="gallery-link" href="full-size image"><img alt="..."></a>
+  //     <figcaption>...</figcaption>
+  //   </figure>
+  // Without JS the links simply open the full image; with JS they open the lightbox.
+  function initGallery() {
+    var grid = document.getElementById("gallery-grid");
+    if (!grid) return;
+    var items = Array.prototype.slice.call(grid.querySelectorAll(".gallery-item"));
+    var buttons = Array.prototype.slice.call(document.querySelectorAll(".filter-btn"));
+    var status = document.getElementById("gallery-status");
+
+    // Filters
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var filter = btn.getAttribute("data-filter");
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        var shown = 0;
+        items.forEach(function (item) {
+          var match = filter === "all" || item.getAttribute("data-category") === filter;
+          item.hidden = !match;
+          if (match) shown++;
+        });
+        if (status) status.textContent = "Showing " + shown + " of " + items.length + " projects (" + btn.textContent + ").";
+      });
+    });
+
+    // Lightbox
+    var dialog = document.getElementById("lightbox");
+    if (!dialog || typeof dialog.showModal !== "function") return; // fall back to plain links
+    var img = document.getElementById("lightbox-img");
+    var caption = document.getElementById("lightbox-caption");
+    var count = document.getElementById("lightbox-count");
+    var current = -1;
+    var trigger = null;
+
+    function visibleItems() { return items.filter(function (item) { return !item.hidden; }); }
+
+    // Only allow same-origin image URLs into the lightbox (defence in depth).
+    function safeSrc(href) {
+      try {
+        var url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin && url.protocol !== "file:") return null;
+        return url.href;
+      } catch (e) { return null; }
+    }
+
+    function show(index) {
+      var list = visibleItems();
+      if (!list.length) return;
+      current = (index + list.length) % list.length;
+      var item = list[current];
+      var link = item.querySelector(".gallery-link");
+      var thumb = item.querySelector("img");
+      var cap = item.querySelector("figcaption");
+      var src = link && safeSrc(link.getAttribute("href"));
+      if (!src) return;
+      img.src = src;
+      img.alt = thumb ? thumb.alt : "";
+      if (thumb) {
+        img.setAttribute("width", thumb.getAttribute("width"));
+        img.setAttribute("height", thumb.getAttribute("height"));
+      }
+      caption.textContent = cap ? cap.textContent.replace(/\s+/g, " ").trim() : "";
+      count.textContent = (current + 1) + " / " + list.length;
+    }
+
+    grid.addEventListener("click", function (e) {
+      var link = e.target.closest(".gallery-link");
+      if (!link) return;
+      e.preventDefault();
+      trigger = link;
+      var list = visibleItems();
+      show(list.indexOf(link.closest(".gallery-item")));
+      dialog.showModal();
+    });
+
+    dialog.addEventListener("click", function (e) {
+      var action = e.target.closest("[data-lightbox]");
+      if (action) {
+        var a = action.getAttribute("data-lightbox");
+        if (a === "close") dialog.close();
+        else show(current + (a === "next" ? 1 : -1));
+      } else if (e.target === dialog) {
+        dialog.close(); // click on the backdrop
+      }
+    });
+
+    dialog.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); show(current + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); show(current - 1); }
+    });
+
+    // Esc is handled natively by <dialog>; always return focus to the thumbnail.
+    dialog.addEventListener("close", function () {
+      if (trigger) trigger.focus();
+    });
   }
 })();

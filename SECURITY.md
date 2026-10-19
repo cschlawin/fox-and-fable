@@ -21,10 +21,10 @@ Only the latest commit on `main` is maintained.
 | Content Security Policy | Strict policy: everything from `'self'`; no inline scripts or styles, no `eval`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`, `frame-ancestors 'none'` (header only). Delivered as an HTTP header via `_headers`, with a `<meta>` fallback for hosts that can't set headers. |
 | Third parties | None. Fonts are self-hosted (SIL OFL), there are no CDNs, analytics, trackers, or third-party scripts, so no visitor data leaks to other origins. If an external resource is ever added, it must use Subresource Integrity (`integrity` + `crossorigin`) and be added to the CSP explicitly. |
 | HTTP headers (`_headers`) | `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, microphone, geolocation, payment, USB off), `Strict-Transport-Security`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`. |
-| DOM safety | JavaScript never writes user input with `innerHTML`; it uses `textContent` and DOM nodes. No inline event handlers. |
+| DOM safety | JavaScript never writes user input or captions with `innerHTML`; it uses `textContent` and DOM nodes. The gallery lightbox only loads same-origin image URLs. No inline event handlers. |
 | Form | `maxlength` on every text field, `type="email"` / `type="tel"` with patterns, input trimmed and stripped of control characters, a hidden honeypot field for bots. The form submits nowhere. |
 | Links | Outbound links use `rel="noopener noreferrer"`. |
-| Repository hygiene | `.gitignore` excludes `.env*`, keys, certificates, and OS/editor files. No secrets, API keys, or personal data are committed; the contact email is a placeholder. |
+| Repository hygiene | `.gitignore` excludes `.env*`, keys, certificates, and OS/editor files. No secrets or API keys are committed, the contact email is a placeholder, and photos have all EXIF/GPS metadata stripped before they are committed. |
 
 ## Important limitation
 

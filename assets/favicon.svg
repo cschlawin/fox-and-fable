@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t"><title id="t">Fox &amp; Fable fox mark</title><path d="M8 6 L24 22 H40 L56 6 L54 34 L32 58 L10 34 Z" fill="#C2582B"/><path d="M10 34 L24 36 L32 46 L40 36 L54 34 L32 58 Z" fill="#F7F1E6"/><path d="M14 13 L22 22 L15 26 Z M50 13 L42 22 L49 26 Z" fill="#8E3B1A"/><circle cx="24" cy="30" r="2.2" fill="#1F3A2E"/><circle cx="40" cy="30" r="2.2" fill="#1F3A2E"/><path d="M29 54 L35 54 L32 58 Z" fill="#1F3A2E"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2B2A28"/><g transform="translate(8.6 7.8) scale(.073)" color="#F3EEE4"><g fill="none" stroke="currentColor" stroke-width="38" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M96 46Q68 160 128 296L70 404L128 430L88 456C136 532 230 592 296 600Q320 606 344 600C410 592 504 532 552 456L512 430L570 404L512 296Q572 160 544 46L392 182Q320 168 248 182Z"/>
+  <path d="M122 105Q142 160 128 216L119 212M518 105Q498 160 512 216L521 212"/>
+  <path d="M160 372Q212 354 262 390Q232 426 194 410Q178 398 186 380M480 372Q428 354 378 390Q408 426 446 410Q462 398 454 380"/>
+  <path d="M238 341L251 348M402 341L389 348"/>
+  <path d="M258 404C272 452 280 500 294 544M382 404C368 452 360 500 346 544"/>
+  <path d="M290 552Q320 540 350 552Q348 584 320 592Q292 584 290 552Z" fill="currentColor"/>
+  <circle cx="226" cy="392" r="7" fill="currentColor" stroke="none"/>
+  <circle cx="414" cy="392" r="7" fill="currentColor" stroke="none"/>
+</g></g></svg>
