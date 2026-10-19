@@ -314,8 +314,7 @@ main:focus { outline: none; }
 .designers .btn-light { margin-top: var(--space-5); }
 .trade-cards { display: grid; gap: var(--space-4); }
 .trade-card { padding: var(--space-5); border: 1px solid rgb(243 238 228 / 0.16); border-radius: var(--radius); background: var(--c-ink-soft); }
-.trade-figure { font-variant-numeric: lining-nums; font-family: var(--font-serif); font-size: 3.5rem; line-height: 1; color: var(--c-oak-light); font-weight: 600; }
-.trade-card h3 { margin-block: var(--space-2); }
+.trade-card h3 { margin-block: 0 var(--space-2); }
 
 /* 9e. Commercial --------------------------------------------------------- */
 .commercial-grid { display: grid; gap: var(--space-4); }
