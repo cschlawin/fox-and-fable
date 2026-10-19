@@ -2,7 +2,7 @@
 
 A hand-coded, responsive three-page site for **Fox & Fable, LLC**, a concept-stage design-build studio in
 Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk rooms.
-*Custom Spaces Built to Inspire.*
+**Fox & Fable Design + Construction.** *Playful Spaces. Timeless Memories.*
 
 > **Status:** design mockup / portfolio project. Apart from Cody's headshot, all imagery is placeholder art.
 > Bios are fill-in prompts, the contact email is a placeholder, and the consultation form validates in the
@@ -14,17 +14,19 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
+| `index.html` | Hero with the logo, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
 | `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
 | `gallery.html` | Nine slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), two photo-set projects (a built-in playhouse with a before photo, and a stone-wall primary bedroom), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
 
-- **Badge logo recreated as a vector** (`assets/logo-badge.svg`). The ring, fox head, rule, and house are hand-drawn
-  SVG paths. The lettering is outlined from the self-hosted OFL fonts by `tools/build-logo.py`, so there's no font
-  dependency. It uses `currentColor`, so the same symbol renders as charcoal ink, as a burned-oak "brand" on wood,
-  or as parchment on the dark footer.
-- **Compact fox mark** (`assets/logo-mark.svg`) for the nav, plus a favicon, apple-touch icon, and Open Graph image built from it.
+- **Fine-line fox logo** (October 2026 rebrand). The original artwork lives in `docs/brand-reference/`, and
+  `tools/build-logo-assets.py` builds the web assets from it into `assets/logo/`: a full lockup for the hero
+  (WebP + PNG, 480/960 `srcset`), a light-line fox + wordmark for the charcoal footer, a compact fox mark for the nav
+  (1x/2x) beside the live-text wordmark, a "burned" fox for the oak brand stamp, plus the favicon set
+  (`favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`) and the 1200×630
+  Open Graph image. The off-white background is keyed to clean transparency so the hair-thin lines stay intact on
+  any background. The logo stays raster because the artwork's tapered, gradient strokes don't survive a trace cleanly.
 - **Shared header and footer** on every page, with `aria-current="page"` on the active link.
 - **Mobile navigation** with an accessible toggle (`aria-expanded`; it closes on link click, on Escape, and on resize).
 - **Client-side form validation** with friendly inline messages, a live character counter, and a success state.
@@ -43,25 +45,23 @@ site/
 ├── css/styles.css            # Mobile-first stylesheet built on design tokens
 ├── js/main.js                # Nav, form validation, gallery filters + lightbox
 ├── assets/
-│   ├── logo-badge.svg        # Full badge logo (vector, currentColor)
-│   ├── logo-mark.svg         # Fox head mark
-│   ├── favicon.svg, apple-touch-icon.png, og-image.png/.svg
+│   ├── logo/                 # Generated logo assets (lockup, light footer lockup, nav fox, burned fox), WebP + PNG
+│   ├── favicon.ico, favicon-32.png, apple-touch-icon.png, icon-192.png, icon-512.png, og-image.png
 │   ├── fonts/                # Self-hosted Cormorant Garamond + Inter (woff2) + OFL licenses
 │   ├── video/                # Self-hosted MP4 (H.264/AAC) + WebM (VP9/Opus) pairs, metadata stripped
 │   └── images/
 │       ├── placeholders/     # landscape / portrait / square placeholder art
 │       ├── about/            # cody.*, family.* (Jessica's portrait goes here)
 │       └── gallery/          # video posters + project photos
-├── tools/build-logo.py       # Regenerates the logo SVGs (needs: pip install fonttools brotli)
-├── tools/sprite.svg.txt      # Generated <symbol> markup pasted into each page's sprite
-├── docs/                     # README screenshot + brand reference (original logo artwork), WebP
-├── _headers, robots.txt, sitemap.xml
+├── tools/build-logo-assets.py # Rebuilds every logo/icon asset from the original (needs: pip install pillow numpy scipy)
+├── docs/                     # README screenshot; brand-reference/ holds the original logo artwork (plus the retired badge)
+├── _headers, robots.txt, sitemap.xml, site.webmanifest
 └── README.md, SECURITY.md, LICENSE
 ```
 
 ## Design decisions
 
-- **The palette comes from the branding-iron logo.** Charcoal ink, parchment, oak, and wrought iron. Soft sage and blush
+- **The palette comes from the original branding-iron logo** (kept through the October 2026 logo change). Charcoal ink, parchment, oak, and wrought iron. Soft sage and blush
   macaron accents appear only in illustrations and small details.
 
   | Token | Hex | Use | Contrast |
@@ -79,10 +79,10 @@ site/
 
 - **Textures are CSS gradients only.** That covers the parchment wash, the oak grain (`--tex-wood`), and the brushed-iron
   bands. They need no image requests, so the CSP stays strict.
-- **Typography.** *Cormorant Garamond* for headings and the spaced-caps wordmark (an echo of the badge lettering) and
-  *Inter* for body text and the spaced-caps eyebrows (an echo of the badge tagline). Each eyebrow gets a short rule
-  like the one under the badge name.
-- **"Branded" motif.** The hero shows the badge burned into an oak board, a nod to the custom branding iron the logo was designed for.
+- **Typography.** *Cormorant Garamond* for headings and the spaced-caps wordmark (close to the logo's serif wordmark, with the `&` picked out in the accent color) and
+  *Inter* for body text and the spaced-caps eyebrows (an echo of the logo's spaced-caps tagline). Each eyebrow gets a short rule
+  like the one under the logo's descriptor.
+- **Logo showcase and "branded" motif.** The hero shows the full logo on a cream card; the values section keeps the oak-board stamp, now with the fox "burned" in.
 - **Honest content.** There are no invented testimonials, stats, awards, projects, or bios. Every slot is labeled as a placeholder.
 
 ## Accessibility notes
@@ -284,8 +284,10 @@ Netlify Forms, or a serverless function) with **server-side validation and sanit
 
 ## Maintenance notes
 
-- The header, footer, and SVG sprite are repeated in each page, because this is a no-build static site. When you change one, change all three.
-- To change the logo, edit `tools/build-logo.py`, run it, then paste `tools/sprite.svg.txt` into each page's sprite.
+- The header and footer are repeated in each page, because this is a no-build static site. When you change one, change all three.
+- To change the logo, replace `docs/brand-reference/fox-and-fable-logo-original.png` and run `python3 tools/build-logo-assets.py`
+  (adjust the crop boxes at the top of the script if the layout changed). The old badge generator `tools/build-logo.py`
+  and its SVGs were retired in the October 2026 rebrand.
 
 ## Roadmap
 
