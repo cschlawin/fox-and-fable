@@ -230,7 +230,10 @@
     function slidesFor(item) {
       var link = item.querySelector(".gallery-link");
       var thumb = item.querySelector("img");
-      var slides = [{ href: link.getAttribute("href"), alt: thumb ? thumb.alt : "", w: thumb ? thumb.getAttribute("width") : null, h: thumb ? thumb.getAttribute("height") : null, label: "" }];
+      // The card shows a small pre-resized thumbnail; the link carries the full image's own size.
+      var slides = [{ href: link.getAttribute("href"), alt: thumb ? thumb.alt : "",
+        w: link.getAttribute("data-width") || (thumb ? thumb.getAttribute("width") : null),
+        h: link.getAttribute("data-height") || (thumb ? thumb.getAttribute("height") : null), label: "" }];
       Array.prototype.forEach.call(item.querySelectorAll(".gallery-set a"), function (a) { slides.push(slideFrom(a)); });
       return slides;
     }

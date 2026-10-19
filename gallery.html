@@ -27,9 +27,9 @@
 
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
   <!-- Loaded (not deferred) so it can swap .no-js → .js before first paint; DOM work waits for DOMContentLoaded. -->
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=5"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -129,10 +129,10 @@
           </figure>
           <!-- Photo-set item: playhouse. Cover = finished; the lightbox set runs After → Detail → Before. -->
           <figure class="gallery-item photo ratio-portrait" data-category="playhouses">
-            <a class="gallery-link" href="assets/images/gallery/playhouse-slide-1.webp">
+            <a class="gallery-link" href="assets/images/gallery/playhouse-slide-1.webp" data-width="1320" data-height="1644">
               <picture>
-                <source srcset="assets/images/gallery/playhouse-slide-1.webp" type="image/webp">
-                <img src="assets/images/gallery/playhouse-slide-1.jpg" width="1320" height="1644" loading="lazy" decoding="async"
+                <source type="image/webp" srcset="assets/images/gallery/playhouse-slide-1-card-480.webp 480w, assets/images/gallery/playhouse-slide-1-card-960.webp 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)">
+                <img src="assets/images/gallery/playhouse-slide-1-card-480.jpg" srcset="assets/images/gallery/playhouse-slide-1-card-480.jpg 480w, assets/images/gallery/playhouse-slide-1-card-960.jpg 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)" width="480" height="600" loading="lazy" decoding="async"
                      alt="Two-story built-in playhouse in white shiplap with a paneled front door, window openings, a black lantern sconce, flower boxes, and a slide down one side">
               </picture>
             </a>
@@ -148,10 +148,10 @@
           <!-- Photo-set item: the cover link opens the lightbox. Extra photos in .gallery-set cycle with ← / → (shown as "1 / 3").
                Without JS, the cover link opens the cover photo and the extra links stay hidden. -->
           <figure class="gallery-item photo ratio-landscape" data-category="bedrooms">
-            <a class="gallery-link" href="assets/images/gallery/stone-bedroom-1.webp">
+            <a class="gallery-link" href="assets/images/gallery/stone-bedroom-1.webp" data-width="1133" data-height="850">
               <picture>
-                <source srcset="assets/images/gallery/stone-bedroom-1.webp" type="image/webp">
-                <img src="assets/images/gallery/stone-bedroom-1.jpg" width="1133" height="850" loading="lazy" decoding="async"
+                <source type="image/webp" srcset="assets/images/gallery/stone-bedroom-1-card-480.webp 480w, assets/images/gallery/stone-bedroom-1-card-960.webp 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)">
+                <img src="assets/images/gallery/stone-bedroom-1-card-480.jpg" srcset="assets/images/gallery/stone-bedroom-1-card-480.jpg 480w, assets/images/gallery/stone-bedroom-1-card-960.jpg 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)" width="480" height="360" loading="lazy" decoding="async"
                      alt="Primary bedroom in daylight: a whitewashed stone accent wall, dark timber ceiling beams, and an iron four-poster canopy bed on a soft patterned rug beside a wall of windows">
               </picture>
             </a>

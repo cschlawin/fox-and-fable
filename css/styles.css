@@ -462,8 +462,8 @@ main:focus { outline: none; }
 .gallery-item { break-inside: avoid; margin-bottom: var(--space-5); }
 .gallery-item[hidden] { display: none; }
 .gallery-link { display: block; border-radius: var(--radius); text-decoration: none; }
-.gallery-link img { transition: transform .3s var(--ease), box-shadow .3s; }
-.gallery-link:hover img { transform: translateY(-3px); box-shadow: var(--shadow); }
+.gallery-link img { transition: box-shadow .3s; } /* no transform: a moving/composited layer resamples the photo and softens fine lines */
+.gallery-link:hover img { box-shadow: var(--shadow); }
 .gallery-cat {
   display: block; margin-top: var(--space-2); font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-oak-deep);
@@ -567,7 +567,7 @@ main:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .btn:hover, .world-card:hover, .gallery-link:hover img { transform: none; }
+  .btn:hover, .world-card:hover { transform: none; }
 }
 
 /* 16. Page-specific additions ------------------------------------------- */
