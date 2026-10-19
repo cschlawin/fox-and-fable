@@ -67,7 +67,7 @@
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h1 id="gallery-title">Project Gallery</h1>
-        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, and his &amp; her closets. The other slots are placeholders.</p>
+        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, and a stone-wall primary bedroom. The other slots are placeholders.</p>
       </div>
     </section>
 
@@ -79,6 +79,7 @@
           <button class="filter-btn" type="button" data-filter="playhouses" aria-pressed="false">Playhouses</button>
           <button class="filter-btn" type="button" data-filter="bunk-rooms" aria-pressed="false">Bunk Rooms</button>
           <button class="filter-btn" type="button" data-filter="closets" aria-pressed="false">Closets &amp; Built-ins</button>
+          <button class="filter-btn" type="button" data-filter="bedrooms" aria-pressed="false">Bedrooms</button>
           <button class="filter-btn" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
         </div>
         <p class="gallery-status" id="gallery-status" role="status" aria-live="polite"></p>
@@ -117,15 +118,51 @@
               <source src="assets/video/his-her-closets.mp4" type="video/mp4">
               <p>Your browser doesn't support embedded video. <a href="assets/video/his-her-closets.mp4">Download the closet video (MP4)</a>.</p>
             </video>
-            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">His &amp; her closets · [Theme] · [City, UT]</span></figcaption>
+            <div class="gallery-set" id="his-her-before" hidden>
+              <a href="assets/images/gallery/his-her-closets-before-1.webp" data-width="1200" data-height="1600" data-label="Before"
+                 data-alt="Before: the empty walk-in closet with basic wire shelving and rods beside a window">Before 1</a>
+              <a href="assets/images/gallery/his-her-closets-before-2.webp" data-width="1200" data-height="1600" data-label="Before"
+                 data-alt="Before: the same empty closet looking toward the bathroom doorway, with bare walls and wire rods">Before 2</a>
+            </div>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">His &amp; her closets · [Theme] · [City, UT]</span>
+              <button class="before-btn" type="button" data-before-set="his-her-before">See the before (2 photos)</button></figcaption>
           </figure>
-          <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
-          <figure class="gallery-item photo ratio-landscape" data-category="playhouses">
-            <a class="gallery-link" href="assets/images/placeholders/landscape.svg">
-              <img src="assets/images/placeholders/landscape.svg" width="1600" height="1200" loading="lazy" decoding="async" alt="Placeholder for a completed playhouse project photo">
+          <!-- Photo-set item: playhouse. Cover = finished; the lightbox set runs After → Detail → Before. -->
+          <figure class="gallery-item photo ratio-portrait" data-category="playhouses">
+            <a class="gallery-link" href="assets/images/gallery/playhouse-slide-1.webp">
+              <picture>
+                <source srcset="assets/images/gallery/playhouse-slide-1.webp" type="image/webp">
+                <img src="assets/images/gallery/playhouse-slide-1.jpg" width="1320" height="1644" loading="lazy" decoding="async"
+                     alt="Two-story built-in playhouse in white shiplap with a paneled front door, window openings, a black lantern sconce, flower boxes, and a slide down one side">
+              </picture>
             </a>
-            <span class="ph-label">Project photo placeholder</span>
-            <figcaption><span class="gallery-cat">Playhouse</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
+            <span class="set-count" aria-hidden="true">3 photos</span>
+            <div class="gallery-set" hidden>
+              <a href="assets/images/gallery/playhouse-slide-2.webp" data-width="1320" data-height="1649"
+                 data-alt="Close-up of the playhouse's paneled door with black hardware, the lantern sconce, and a flower box of white blooms">Detail</a>
+              <a href="assets/images/gallery/playhouse-slide-before.webp" data-width="1200" data-height="1600" data-label="Before"
+                 data-alt="Before: the same room empty, with gray carpet and three windows, before the playhouse was built">Before</a>
+            </div>
+            <figcaption><span class="gallery-cat">Playhouse</span> <span class="gallery-meta">Built-in playhouse with slide · [Theme] · [City, UT]</span></figcaption>
+          </figure>
+          <!-- Photo-set item: the cover link opens the lightbox. Extra photos in .gallery-set cycle with ← / → (shown as "1 / 3").
+               Without JS, the cover link opens the cover photo and the extra links stay hidden. -->
+          <figure class="gallery-item photo ratio-landscape" data-category="bedrooms">
+            <a class="gallery-link" href="assets/images/gallery/stone-bedroom-1.webp">
+              <picture>
+                <source srcset="assets/images/gallery/stone-bedroom-1.webp" type="image/webp">
+                <img src="assets/images/gallery/stone-bedroom-1.jpg" width="1133" height="850" loading="lazy" decoding="async"
+                     alt="Primary bedroom in daylight: a whitewashed stone accent wall, dark timber ceiling beams, and an iron four-poster canopy bed on a soft patterned rug beside a wall of windows">
+              </picture>
+            </a>
+            <span class="set-count" aria-hidden="true">3 photos</span>
+            <div class="gallery-set" hidden>
+              <a href="assets/images/gallery/stone-bedroom-2.webp" data-width="1320" data-height="864"
+                 data-alt="The same bedroom at dusk: wall sconces lit against the stone wall, the iron canopy bed in warm light, and a blue evening sky through the windows">Photo 2</a>
+              <a href="assets/images/gallery/stone-bedroom-3.webp" data-width="1320" data-height="862"
+                 data-alt="Straight-on view of the iron canopy bed with upholstered headboard and layered neutral bedding in front of the stone accent wall and timber beams">Photo 3</a>
+            </div>
+            <figcaption><span class="gallery-cat">Bedroom</span> <span class="gallery-meta">Primary bedroom · Stone accent wall &amp; timber beams · [City, UT]</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-portrait" data-category="bunk-rooms">
@@ -142,14 +179,6 @@
             </a>
             <span class="ph-label">Project photo placeholder</span>
             <figcaption><span class="gallery-cat">Commercial</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
-          </figure>
-          <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
-          <figure class="gallery-item photo ratio-square" data-category="playhouses">
-            <a class="gallery-link" href="assets/images/placeholders/square.svg">
-              <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a completed playhouse project photo">
-            </a>
-            <span class="ph-label">Project photo placeholder</span>
-            <figcaption><span class="gallery-cat">Playhouse</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-landscape" data-category="bunk-rooms">

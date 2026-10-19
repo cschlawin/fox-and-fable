@@ -171,8 +171,9 @@
 
   // 4. Gallery -----------------------------------------------------------------
   // Markup contract (gallery.html): each project is
-  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|closets|commercial"> (space-separated for more than one)
+  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|closets|bedrooms|commercial"> (space-separated for more than one)
   //     <a class="gallery-link" href="full-size image"><img alt="..."></a>
+  //     <div class="gallery-set" hidden><a href="photo-2" data-alt="..." data-width data-height></a>…</div>  (optional)
   //     <figcaption>...</figcaption>
   //   </figure>
   // Without JS the links simply open the full image; with JS they open the lightbox.
@@ -222,33 +223,71 @@
       } catch (e) { return null; }
     }
 
+    // A project can carry extra photos: <div class="gallery-set" hidden><a href data-alt data-width data-height data-label></div>.
+    function slideFrom(a) {
+      return { href: a.getAttribute("href"), alt: a.getAttribute("data-alt") || "", w: a.getAttribute("data-width"), h: a.getAttribute("data-height"), label: a.getAttribute("data-label") || "" };
+    }
+    function slidesFor(item) {
+      var link = item.querySelector(".gallery-link");
+      var thumb = item.querySelector("img");
+      var slides = [{ href: link.getAttribute("href"), alt: thumb ? thumb.alt : "", w: thumb ? thumb.getAttribute("width") : null, h: thumb ? thumb.getAttribute("height") : null, label: "" }];
+      Array.prototype.forEach.call(item.querySelectorAll(".gallery-set a"), function (a) { slides.push(slideFrom(a)); });
+      return slides;
+    }
+
+    var activeItem = null, slides = [], slide = 0, setOnly = false;
+    function render() {
+      var s = slides[slide];
+      var src = s && safeSrc(s.href);
+      if (!src) return;
+      img.src = src;
+      img.alt = s.alt;
+      if (s.w && s.h) { img.setAttribute("width", s.w); img.setAttribute("height", s.h); }
+      var cap = activeItem.querySelector("figcaption .gallery-meta") || activeItem.querySelector("figcaption");
+      caption.textContent = cap ? cap.textContent.replace(/\s+/g, " ").trim() : "";
+      var text = slides.length > 1 || setOnly
+        ? (slide + 1) + " / " + slides.length
+        : (current + 1) + " / " + visibleItems().length;
+      count.textContent = s.label ? text + " · " + s.label : text;
+    }
+
     function show(index) {
       var list = visibleItems();
       if (!list.length) return;
       current = (index + list.length) % list.length;
-      var item = list[current];
-      var link = item.querySelector(".gallery-link");
-      var thumb = item.querySelector("img");
-      var cap = item.querySelector("figcaption");
-      var src = link && safeSrc(link.getAttribute("href"));
-      if (!src) return;
-      img.src = src;
-      img.alt = thumb ? thumb.alt : "";
-      if (thumb) {
-        img.setAttribute("width", thumb.getAttribute("width"));
-        img.setAttribute("height", thumb.getAttribute("height"));
-      }
-      caption.textContent = cap ? cap.textContent.replace(/\s+/g, " ").trim() : "";
-      count.textContent = (current + 1) + " / " + list.length;
+      activeItem = list[current];
+      slides = slidesFor(activeItem);
+      slide = 0;
+      setOnly = false;
+      render();
+    }
+
+    // Within a multi-photo set, ← / → cycle through its photos; otherwise they move between projects.
+    function step(dir) {
+      if (!activeItem) return;
+      if (slides.length > 1) { slide = (slide + dir + slides.length) % slides.length; render(); }
+      else if (!setOnly) show(current + dir);
     }
 
     grid.addEventListener("click", function (e) {
+      var btn = e.target.closest(".before-btn");
+      if (btn) {
+        var set = document.getElementById(btn.getAttribute("data-before-set"));
+        if (!set) return;
+        trigger = btn;
+        activeItem = btn.closest(".gallery-item");
+        slides = Array.prototype.map.call(set.querySelectorAll("a"), slideFrom);
+        slide = 0;
+        setOnly = true;
+        render();
+        dialog.showModal();
+        return;
+      }
       var link = e.target.closest(".gallery-link");
       if (!link) return;
       e.preventDefault();
       trigger = link;
-      var list = visibleItems();
-      show(list.indexOf(link.closest(".gallery-item")));
+      show(visibleItems().indexOf(link.closest(".gallery-item")));
       dialog.showModal();
     });
 
@@ -257,15 +296,15 @@
       if (action) {
         var a = action.getAttribute("data-lightbox");
         if (a === "close") dialog.close();
-        else show(current + (a === "next" ? 1 : -1));
+        else step(a === "next" ? 1 : -1);
       } else if (e.target === dialog) {
         dialog.close(); // click on the backdrop
       }
     });
 
     dialog.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight") { e.preventDefault(); show(current + 1); }
-      if (e.key === "ArrowLeft") { e.preventDefault(); show(current - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
     });
 
     // Esc is handled natively by <dialog>; always return focus to the thumbnail.

@@ -15,8 +15,8 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 | Page | What's on it |
 |---|---|
 | `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
-| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), two family photos (winter portrait + summer landscape), brand story and values, consultation CTA |
-| `gallery.html` | Nine slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets), then six photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Commercial) and an accessible `<dialog>` lightbox for photos |
+| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
+| `gallery.html` | Nine slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), two photo-set projects (a built-in playhouse with a before photo, and a stone-wall primary bedroom), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
 
@@ -158,12 +158,26 @@ the original carried a copyright notice that was removed with the rest of the me
    </figure>
    ```
 
-   - `data-category` is one or more of `playhouses`, `bunk-rooms`, `closets`, `commercial`, separated by spaces. These drive the filter buttons.
+   - `data-category` is one or more of `playhouses`, `bunk-rooms`, `closets`, `bedrooms`, `commercial`, separated by spaces. These drive the filter buttons.
    - `ratio-landscape` (4:3), `ratio-portrait` (4:5), `ratio-square` (1:1), or `ratio-reel` (9:16, for vertical phone video) sets the frame shape.
    - The link `href` is what the lightbox shows. Keep it a local file (the lightbox only accepts same-origin URLs).
    - Write descriptive `alt` text: what's in the room, not "photo of project".
    - Remove the `ph-label` span, and delete placeholder blocks as real projects replace them.
 3. Ask clients for permission before publishing photos of their home, and never include names or street addresses.
+
+**Multi-photo projects.** To give a project extra photos, add a hidden set after its cover link. The lightbox cycles
+through the set with ← / → and shows "2 / 3". Add `data-label="Before"` to a slide and the indicator reads "3 / 3 · Before":
+
+```html
+<div class="gallery-set" hidden>
+  <a href="assets/images/gallery/project-2.webp" data-width="1320" data-height="864" data-alt="Describe photo 2">Photo 2</a>
+  <a href="assets/images/gallery/project-before.webp" data-width="1200" data-height="1600" data-label="Before" data-alt="Before: …">Before</a>
+</div>
+```
+
+For a **video** card (no cover link), give the set an `id` and add `<button class="before-btn" type="button" data-before-set="that-id">See the before (2 photos)</button>`
+to the caption. The button opens the lightbox on just that set, and focus returns to it on close (see His & her closets).
+The grid card always shows only the finished photo or video. Before shots appear only in the lightbox.
 
 ### Adding project videos
 

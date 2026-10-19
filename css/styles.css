@@ -594,11 +594,12 @@ main:focus { outline: none; }
 
 .ratio-wide img { aspect-ratio: 3 / 2; object-fit: cover; }
 .family-wide { grid-column: 1 / -1; }
+.family-featured { grid-column: auto; } /* mobile: two portraits side by side, landscape full width below */
 .photo-credit { display: block; font-size: 0.78rem; color: var(--c-iron); }
 @media (min-width: 720px) {
-  /* Winter portrait (3:4) beside the summer landscape (3:2). At 1fr : 2fr both photos are the same height */
-  .family-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-4); max-width: 1080px; }
-  .family-featured, .family-wide { grid-column: auto; grid-row: auto; }
+  /* Two 3:4 portraits + one 3:2 landscape. At 1fr : 1fr : 2fr all three photos are the same height */
+  .family-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-4); max-width: 1200px; }
+  .family-featured, .family-snow, .family-wide { grid-column: auto; grid-row: auto; }
 }
 .teaser-link { display: block; border-radius: var(--radius); }
 .teaser .photo img { object-fit: cover; }
@@ -619,3 +620,16 @@ main:focus { outline: none; }
 .gallery-grid { columns: auto; display: grid; grid-template-columns: 1fr; column-gap: var(--space-4); row-gap: 0; align-items: start; }
 @media (min-width: 720px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.set-count {
+  position: absolute; top: var(--space-2); right: var(--space-2); z-index: 2; pointer-events: none;
+  padding: 0.2rem 0.6rem; border-radius: 999px; background: rgb(43 42 40 / 0.8); color: var(--c-parchment);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+}
+.ratio-tall img { object-fit: cover; }
+.before-btn {
+  display: inline-block; margin-top: var(--space-2); padding: 0.45rem 0.9rem; min-height: 44px;
+  border: 1px solid var(--c-oak-deep); border-radius: 999px; background: transparent; color: var(--c-oak-deep);
+  font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer;
+}
+.before-btn:hover { background: rgb(176 122 69 / 0.1); }
+.no-js .before-btn { display: none; }
