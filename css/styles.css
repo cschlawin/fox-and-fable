@@ -633,3 +633,8 @@ main:focus { outline: none; }
 }
 .before-btn:hover { background: rgb(176 122 69 / 0.1); }
 .no-js .before-btn { display: none; }
+/* Gallery cards: never stretch a photo. Explicit sizing so every browser (incl. older Safari)
+   crops to the card's aspect ratio instead of using the height="" attribute or squashing. */
+.gallery-link picture { display: block; }
+.photo img { display: block; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; }
+.lightbox img { height: auto; object-fit: contain; }
