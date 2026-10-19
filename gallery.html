@@ -67,7 +67,7 @@
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h1 id="gallery-title">Project Gallery</h1>
-        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, and commercial spaces. Our first finished projects are up: a Color Drench custom pantry, plus a custom closet built for our daughter (video coming soon). The other slots are placeholders.</p>
+        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, and his &amp; her closets. The other slots are placeholders.</p>
       </div>
     </section>
 
@@ -94,23 +94,30 @@
               <source src="assets/video/custom-pantry.mp4" type="video/mp4">
               <p>Your browser doesn't support embedded video. <a href="assets/video/custom-pantry.mp4">Download the pantry video (MP4)</a>.</p>
             </video>
-            <figcaption><span class="gallery-cat">Closets &amp; Built-ins · Pantry</span> <span class="gallery-meta">Custom pantry · Color Drench · [City, UT]</span></figcaption>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Custom pantry · Color Drench · [City, UT]</span></figcaption>
           </figure>
-          <!-- Video item: daughter's closet. Not a lightbox item (no .gallery-link).
-               When the MP4 arrives, save it as assets/video/daughter-closet.mp4, then:
-                 1. add this line inside <video>:  <source src="assets/video/daughter-closet.mp4" type="video/mp4">
-                 2. optionally swap the poster for a real still (assets/images/gallery/daughter-closet-poster.webp)
-                 3. delete the "Video coming soon" span and the data-pending attribute.
-               (The <source> is left out until then so no 404 request fires.) -->
-          <figure class="gallery-item photo ratio-portrait video-item" data-category="closets">
-            <video class="gallery-video" controls preload="none" playsinline width="1600" height="2000"
-                   poster="assets/images/gallery/daughter-closet-poster.svg"
-                   aria-describedby="closet-video-note" data-pending="true">
-              <p>Your browser doesn't support embedded video.</p>
+          <!-- Video item: custom closet for our daughter (empty closet, then the finished reveal).
+               Captions: add <track kind="captions" src="assets/video/daughter-closet.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
+          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
+            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
+                   poster="assets/images/gallery/daughter-closet-poster.webp"
+                   aria-label="Video: custom closet built by Fox &amp; Fable">
+              <source src="assets/video/daughter-closet.webm" type="video/webm">
+              <source src="assets/video/daughter-closet.mp4" type="video/mp4">
+              <p>Your browser doesn't support embedded video. <a href="assets/video/daughter-closet.mp4">Download the closet video (MP4)</a>.</p>
             </video>
-            <span class="ph-label">Video coming soon</span>
-            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Custom closet for our daughter · [Theme] · Kaysville, UT</span>
-              <span class="video-note" id="closet-video-note">A walkthrough video of this built-in closet is on its way.</span></figcaption>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Custom closet for our daughter · [Theme] · Kaysville, UT</span></figcaption>
+          </figure>
+          <!-- Video item: his & her closets (finished walk-in). -->
+          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
+            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
+                   poster="assets/images/gallery/his-her-closets-poster.webp"
+                   aria-label="Video: his and her custom closets built by Fox &amp; Fable">
+              <source src="assets/video/his-her-closets.webm" type="video/webm">
+              <source src="assets/video/his-her-closets.mp4" type="video/mp4">
+              <p>Your browser doesn't support embedded video. <a href="assets/video/his-her-closets.mp4">Download the closet video (MP4)</a>.</p>
+            </video>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">His &amp; her closets · [Theme] · [City, UT]</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-landscape" data-category="playhouses">
@@ -129,14 +136,6 @@
             <figcaption><span class="gallery-cat">Bunk room</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
-          <figure class="gallery-item photo ratio-square" data-category="playhouses">
-            <a class="gallery-link" href="assets/images/placeholders/square.svg">
-              <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a completed playhouse project photo">
-            </a>
-            <span class="ph-label">Project photo placeholder</span>
-            <figcaption><span class="gallery-cat">Playhouse</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
-          </figure>
-          <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-landscape" data-category="commercial">
             <a class="gallery-link" href="assets/images/placeholders/landscape.svg">
               <img src="assets/images/placeholders/landscape.svg" width="1600" height="1200" loading="lazy" decoding="async" alt="Placeholder for a completed commercial project photo">
@@ -145,9 +144,9 @@
             <figcaption><span class="gallery-cat">Commercial</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
-          <figure class="gallery-item photo ratio-portrait" data-category="playhouses">
-            <a class="gallery-link" href="assets/images/placeholders/portrait.svg">
-              <img src="assets/images/placeholders/portrait.svg" width="1600" height="2000" loading="lazy" decoding="async" alt="Placeholder for a completed playhouse project photo">
+          <figure class="gallery-item photo ratio-square" data-category="playhouses">
+            <a class="gallery-link" href="assets/images/placeholders/square.svg">
+              <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a completed playhouse project photo">
             </a>
             <span class="ph-label">Project photo placeholder</span>
             <figcaption><span class="gallery-cat">Playhouse</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
@@ -161,9 +160,9 @@
             <figcaption><span class="gallery-cat">Bunk room</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
-          <figure class="gallery-item photo ratio-square" data-category="commercial">
-            <a class="gallery-link" href="assets/images/placeholders/square.svg">
-              <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a completed commercial project photo">
+          <figure class="gallery-item photo ratio-portrait" data-category="commercial">
+            <a class="gallery-link" href="assets/images/placeholders/portrait.svg">
+              <img src="assets/images/placeholders/portrait.svg" width="1600" height="2000" loading="lazy" decoding="async" alt="Placeholder for a completed commercial project photo">
             </a>
             <span class="ph-label">Project photo placeholder</span>
             <figcaption><span class="gallery-cat">Commercial</span> <span class="gallery-meta">[Project name] · [Theme] · [City, UT]</span></figcaption>

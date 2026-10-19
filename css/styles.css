@@ -459,7 +459,7 @@ main:focus { outline: none; }
 .filter-btn:hover { background: var(--c-parchment-2); }
 .filter-btn[aria-pressed="true"] { background: var(--c-ink); color: var(--c-parchment); }
 .gallery-status { margin-bottom: var(--space-3); font-size: 0.9rem; color: var(--c-iron); }
-.gallery-grid { columns: 1; column-gap: var(--space-4); }
+
 .gallery-item { break-inside: avoid; margin-bottom: var(--space-5); }
 .gallery-item[hidden] { display: none; }
 .gallery-link { display: block; border-radius: var(--radius); text-decoration: none; }
@@ -536,7 +536,7 @@ main:focus { outline: none; }
   .teaser-grid figure:first-child { grid-column: auto; }
   .founder { grid-template-columns: minmax(240px, 0.8fr) 1.2fr; gap: var(--space-6); }
   .founder-secondary { grid-template-columns: minmax(200px, 0.5fr) 1.5fr; }
-  .gallery-grid { columns: 2; }
+
 }
 
 @media (min-width: 1100px) {
@@ -561,7 +561,7 @@ main:focus { outline: none; }
   .split { grid-template-columns: 1.1fr 1fr; gap: var(--space-7); }
   .split-form { grid-template-columns: 0.8fr 1.2fr; }
   .consult-intro { position: sticky; top: calc(var(--header-h) + 2rem); }
-  .gallery-grid { columns: 3; }
+
 }
 
 /* 15. Reduced motion ----------------------------------------------------- */
@@ -603,3 +603,19 @@ main:focus { outline: none; }
 .teaser-link { display: block; border-radius: var(--radius); }
 .teaser .photo img { object-fit: cover; }
 .teaser .photo:first-child img { object-position: 50% 45%; }
+
+/* 18. Behind-the-Build video tiles */
+.video-item { position: relative; }
+.build-video { grid-row: span 2; }
+.build-video figure { margin: 0; }
+.build-video-el { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--radius); background: var(--c-ink); }
+.build-video figcaption { margin-top: var(--space-2); font-size: 0.9rem; color: var(--c-iron); }
+@media (min-width: 720px) {
+  .build-video { grid-row: auto; }
+  .build-strip { align-items: start; }
+}
+
+/* Gallery: row-major grid so items read left to right in source order */
+.gallery-grid { columns: auto; display: grid; grid-template-columns: 1fr; column-gap: var(--space-4); row-gap: 0; align-items: start; }
+@media (min-width: 720px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

@@ -171,7 +171,7 @@
 
   // 4. Gallery -----------------------------------------------------------------
   // Markup contract (gallery.html): each project is
-  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|commercial">
+  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|closets|commercial"> (space-separated for more than one)
   //     <a class="gallery-link" href="full-size image"><img alt="..."></a>
   //     <figcaption>...</figcaption>
   //   </figure>
@@ -190,7 +190,8 @@
         buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
         var shown = 0;
         items.forEach(function (item) {
-          var match = filter === "all" || item.getAttribute("data-category") === filter;
+          var cats = (item.getAttribute("data-category") || "").split(/\s+/);
+          var match = filter === "all" || cats.indexOf(filter) !== -1;
           item.hidden = !match;
           if (match) shown++;
         });

@@ -8,15 +8,15 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 > Bios are fill-in prompts, the contact email is a placeholder, and the consultation form validates in the
 > browser but does not send anything.
 
-![Desktop hero screenshot](docs/desktop-hero.png)
+![Desktop hero screenshot](docs/desktop-hero.webp)
 
 ## Pages
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build, gallery teaser (Color Drench pantry and the closet video slot), consultation form |
+| `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
 | `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), the featured family photo plus two family placeholders, brand story and values, consultation CTA |
-| `gallery.html` | Nine slots in a masonry grid: the Color Drench custom pantry video (self-hosted), the daughter's custom closet video slot ("Video coming soon"), and seven photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Commercial) and an accessible `<dialog>` lightbox for photos |
+| `gallery.html` | Nine slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets), then six photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
 
@@ -47,14 +47,14 @@ site/
 │   ├── logo-mark.svg         # Fox head mark
 │   ├── favicon.svg, apple-touch-icon.png, og-image.png/.svg
 │   ├── fonts/                # Self-hosted Cormorant Garamond + Inter (woff2) + OFL licenses
-│   ├── video/                # custom-pantry.webm + .mp4 (daughter-closet.mp4 goes here)
+│   ├── video/                # Self-hosted MP4 (H.264/AAC) + WebM (VP9/Opus) pairs, metadata stripped
 │   └── images/
 │       ├── placeholders/     # landscape / portrait / square placeholder art
 │       ├── about/            # cody.*, family.* (Jessica's portrait goes here)
 │       └── gallery/          # video posters + project photos
 ├── tools/build-logo.py       # Regenerates the logo SVGs (needs: pip install fonttools brotli)
 ├── tools/sprite.svg.txt      # Generated <symbol> markup pasted into each page's sprite
-├── docs/                     # README screenshot + brand reference (original logo artwork)
+├── docs/                     # README screenshot + brand reference (original logo artwork), WebP
 ├── _headers, robots.txt, sitemap.xml
 └── README.md, SECURITY.md, LICENSE
 ```
@@ -156,7 +156,7 @@ warmth, light sharpening) and are sRGB. All metadata was stripped. The family ph
    </figure>
    ```
 
-   - `data-category` must be one of `playhouses`, `bunk-rooms`, `closets`, or `commercial` (these drive the filter buttons).
+   - `data-category` is one or more of `playhouses`, `bunk-rooms`, `closets`, `commercial`, separated by spaces. These drive the filter buttons.
    - `ratio-landscape` (4:3), `ratio-portrait` (4:5), `ratio-square` (1:1), or `ratio-reel` (9:16, for vertical phone video) sets the frame shape.
    - The link `href` is what the lightbox shows. Keep it a local file (the lightbox only accepts same-origin URLs).
    - Write descriptive `alt` text: what's in the room, not "photo of project".
@@ -213,16 +213,23 @@ ffprobe -v error -show_entries format_tags:stream_tags -of compact project.mp4 |
   ```
   The pantry video has no captions file yet. The exact `<track>` line for it is in the HTML comment above its item in `gallery.html`.
 
-**Daughter's closet video (pending).** Its slot in `gallery.html` deliberately has **no `<source>`**, so it makes no
-request (and no 404) until the file exists. When the video arrives:
+The gallery shows **finished projects only**. Process and behind-the-scenes footage goes in the homepage Behind-the-Build strip (`<li class="build-video">`).
 
-1. Transcode it as above and save `assets/video/daughter-closet.mp4` (and optionally `daughter-closet.webm`).
-2. Inside that `<video>`, add `<source src="assets/video/daughter-closet.webm" type="video/webm">` (if made) and
-   `<source src="assets/video/daughter-closet.mp4" type="video/mp4">`.
-3. Optionally export a poster frame (`daughter-closet-poster.webp`) and point `poster=` at it in place of the illustrated SVG.
-   If the video is 9:16, change `ratio-portrait` to `ratio-reel` and set `width="608" height="1080"`.
-4. Remove `data-pending="true"`, the `<span class="ph-label">Video coming soon</span>`, and the "on its way" note,
-   and replace `[Theme]`. Then update the closet tile in `index.html` the same way.
+**Current videos** (all 608 × 1080 portrait, `controls preload="none" playsinline`, no autoplay):
+
+| File (`assets/video/`) | Where | Notes |
+|---|---|---|
+| `painting-timelapse` | Homepage Behind-the-Build tile 1 | Spray-painting the fluted pantry doors, sped up 2× to 19.4 s at 30 fps, **no audio** (it was dropped) |
+| `custom-pantry` | Gallery, homepage teaser | Finished Color Drench pantry, 9.7 s |
+| `daughter-closet` | Gallery, homepage teaser | Custom closet for our daughter, empty → finished reveal, 32.2 s |
+| `his-her-closets` | Gallery, homepage teaser | Finished his & her walk-in closets, 12.6 s |
+| `workshop-panel-glue-up` | Homepage Behind-the-Build tile 2 (Joinery) | Gluing up and clamping a cabinet panel, 25.3 s |
+
+A time-lapse is made with `-vf "setpts=PTS/2,fps=30,scale=-2:1080" -an` (2× speed; raise the divisor for faster).
+Drop the audio, because sped-up sound is unpleasant.
+
+**Privacy.** Never put children's names in captions, alt text, file names, or commits. Before publishing, check the frames
+for name signs or decals, house numbers, readable family photos, and faces.
 
 ## Deploy to GitHub Pages
 
@@ -266,7 +273,7 @@ Netlify Forms, or a serverless function) with **server-side validation and sanit
 
 ## Roadmap
 
-- Real project photography (responsive `srcset`, AVIF/WebP), Jessica's portrait, and the daughter's closet video.
+- Real project photography (responsive `srcset`, AVIF/WebP), Jessica's portrait, and WebVTT captions for the videos.
 - Connect the form to **Formspree** or **Netlify Forms** with server-side validation and spam protection.
 - Individual project case-study pages linked from the gallery, and a dedicated Trade Program page.
 - Self-host the Behind-the-Build videos (with WebVTT captions), and add privacy policy and terms pages.
