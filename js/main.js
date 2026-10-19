@@ -207,7 +207,10 @@
     var current = -1;
     var trigger = null;
 
-    function visibleItems() { return items.filter(function (item) { return !item.hidden; }); }
+    // Only photo items take part in the lightbox; video items (no .gallery-link) play inline.
+    function visibleItems() {
+      return items.filter(function (item) { return !item.hidden && item.querySelector(".gallery-link"); });
+    }
 
     // Only allow same-origin image URLs into the lightbox (defence in depth).
     function safeSrc(href) {

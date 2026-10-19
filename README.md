@@ -14,9 +14,9 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build, gallery teaser, consultation form |
-| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), family photo slots, brand story and values, consultation CTA |
-| `gallery.html` | Nine project photo slots in a masonry grid, category filters (All / Playhouses / Bunk Rooms / Commercial), and an accessible `<dialog>` lightbox |
+| `index.html` | Hero with the branded badge, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build, gallery teaser (Color Drench pantry and the closet video slot), consultation form |
+| `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), Cody's section (real headshot, placeholder bio and title), the featured family photo plus two family placeholders, brand story and values, consultation CTA |
+| `gallery.html` | Nine slots in a masonry grid: the Color Drench custom pantry video (self-hosted), the daughter's custom closet video slot ("Video coming soon"), and seven photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
 
@@ -29,6 +29,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 - **Mobile navigation** with an accessible toggle (`aria-expanded`; it closes on link click, on Escape, and on resize).
 - **Client-side form validation** with friendly inline messages, a live character counter, and a success state.
 - **Gallery filters and lightbox.** Progressive enhancement: without JS, every project shows and each link opens the full image.
+- **Self-hosted project videos** (WebM/VP9 + MP4/H.264) that play inline with native controls. Nothing autoplays, and `preload="none"` means no video bytes load until the visitor presses play.
 - **SEO**: a per-page title and description, canonical URLs, Open Graph and Twitter tags, `robots.txt`, and `sitemap.xml`.
 - **Security hardening**: a strict CSP, security headers, and no third-party requests (see [Security](#security)).
 
@@ -46,10 +47,11 @@ site/
 │   ├── logo-mark.svg         # Fox head mark
 │   ├── favicon.svg, apple-touch-icon.png, og-image.png/.svg
 │   ├── fonts/                # Self-hosted Cormorant Garamond + Inter (woff2) + OFL licenses
+│   ├── video/                # custom-pantry.webm + .mp4 (daughter-closet.mp4 goes here)
 │   └── images/
 │       ├── placeholders/     # landscape / portrait / square placeholder art
-│       ├── about/            # cody.webp + cody.jpg (Jessica & family photos go here)
-│       └── gallery/          # project photos go here
+│       ├── about/            # cody.*, family.* (Jessica's portrait goes here)
+│       └── gallery/          # video posters + project photos
 ├── tools/build-logo.py       # Regenerates the logo SVGs (needs: pip install fonttools brotli)
 ├── tools/sprite.svg.txt      # Generated <symbol> markup pasted into each page's sprite
 ├── docs/                     # README screenshot + brand reference (original logo artwork)
@@ -123,7 +125,7 @@ Double-check with `exiftool photo.jpg` (it should show no GPS, camera, or date f
 | Slot | Drop the file at | Aspect | Suggested size |
 |---|---|---|---|
 | Jessica's portrait | `assets/images/about/jessica.webp` (+ `.jpg`) | 4:5 portrait | 640 × 800 |
-| Family photos (4) | `assets/images/about/family-1.webp` … `family-4.webp` | 1:1 square | 800 × 800 |
+| Extra family photos (2) | `assets/images/about/family-2.webp`, `family-3.webp` | 1:1 square | 800 × 800 |
 
 Then, in `about.html`:
 
@@ -133,8 +135,9 @@ Then, in `about.html`:
 3. Replace the `alt` with a real description, e.g. `alt="Jessica in the Fox & Fable workshop"`.
 4. Delete the `<span class="ph-label">…</span>` line, and replace the `[bracketed]` prompt text and role.
 
-Cody's headshot (`assets/images/about/cody.webp` / `.jpg`, 640 × 800) was cropped to 4:5 with light touch-ups only
-(gentle levels, slight warmth, light sharpening). All metadata was stripped.
+Cody's headshot (`assets/images/about/cody.webp` / `.jpg`, 640 × 800) and the featured family photo
+(`assets/images/about/family.webp` / `.jpg`, 557 × 743, 3:4) have light touch-ups only (gentle levels, slight
+warmth, light sharpening) and are sRGB. All metadata was stripped. The family photo's alt text doesn't include the children's names. Keep it that way.
 
 ### Adding gallery photos (`gallery.html`)
 
@@ -153,12 +156,73 @@ Cody's headshot (`assets/images/about/cody.webp` / `.jpg`, 640 × 800) was cropp
    </figure>
    ```
 
-   - `data-category` must be one of `playhouses`, `bunk-rooms`, or `commercial` (these drive the filter buttons).
-   - `ratio-landscape` (4:3), `ratio-portrait` (4:5), or `ratio-square` (1:1) sets the frame shape.
+   - `data-category` must be one of `playhouses`, `bunk-rooms`, `closets`, or `commercial` (these drive the filter buttons).
+   - `ratio-landscape` (4:3), `ratio-portrait` (4:5), `ratio-square` (1:1), or `ratio-reel` (9:16, for vertical phone video) sets the frame shape.
    - The link `href` is what the lightbox shows. Keep it a local file (the lightbox only accepts same-origin URLs).
    - Write descriptive `alt` text: what's in the room, not "photo of project".
    - Remove the `ph-label` span, and delete placeholder blocks as real projects replace them.
 3. Ask clients for permission before publishing photos of their home, and never include names or street addresses.
+
+### Adding project videos
+
+Videos are self-hosted in `assets/video/` (the CSP allows `media-src 'self'` only, so there are no YouTube or Instagram embeds).
+They play inline and **never open in the lightbox**: the lightbox only picks up items with a `.gallery-link`.
+
+**1. Transcode and strip metadata.** Phone video stores **GPS coordinates** (`com.apple.quicktime.location.ISO6709`),
+the device model, and the creation date. Remove all of them:
+
+```bash
+# MP4 / H.264 + AAC, long edge 1080px, streamable (+faststart). ffmpeg applies the phone's rotation automatically.
+ffmpeg -i input.mov -map 0:v:0 -map 0:a:0 -map_metadata -1 -map_metadata:s:v -1 -map_metadata:s:a -1 -map_chapters -1 \
+  -vf "scale='if(gt(iw,ih),1080,-2)':'if(gt(iw,ih),-2,1080)',format=yuv420p" \
+  -c:v libx264 -preset slow -crf 25 -profile:v high -c:a aac -b:a 96k \
+  -movflags +faststart -fflags +bitexact -flags:v +bitexact -flags:a +bitexact project.mp4
+# WebM / VP9 + Opus (smaller in Chrome/Firefox/Edge)
+ffmpeg -i input.mov -map 0:v:0 -map 0:a:0 -map_metadata -1 -map_chapters -1 \
+  -vf "scale='if(gt(iw,ih),1080,-2)':'if(gt(iw,ih),-2,1080)'" \
+  -c:v libvpx-vp9 -crf 34 -b:v 0 -row-mt 1 -c:a libopus -b:a 80k project.webm
+# Poster: one sharp frame
+ffmpeg -ss 4.8 -i project.mp4 -frames:v 1 -map_metadata -1 project-poster.jpg
+# Verify: this should print nothing
+ffprobe -v error -show_entries format_tags:stream_tags -of compact project.mp4 | grep -iE 'location|ISO6709|make|model|creation'
+```
+
+**2. Add the markup** (copy the Color Drench pantry item in `gallery.html`):
+
+```html
+<figure class="gallery-item photo ratio-reel video-item" data-category="closets">
+  <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
+         poster="assets/images/gallery/project-poster.webp"
+         aria-label="Video: [Theme] [project] built by Fox &amp; Fable">
+    <source src="assets/video/project.webm" type="video/webm">
+    <source src="assets/video/project.mp4" type="video/mp4">
+    <track kind="captions" src="assets/video/project.en.vtt" srclang="en" label="English">
+  </video>
+  <figcaption>…</figcaption>
+</figure>
+```
+
+- Don't add `autoplay` or force `muted`. Visitors start playback and control the sound themselves.
+- **Captions.** If a video has speech or meaningful sound, add a WebVTT file next to it (`assets/video/<name>.en.vtt`) and
+  the `<track>` line above. Same-origin `.vtt` files work under the current CSP. A starter file:
+  ```
+  WEBVTT
+
+  00:00:00.000 --> 00:00:04.000
+  [Describe the speech or sound]
+  ```
+  The pantry video has no captions file yet. The exact `<track>` line for it is in the HTML comment above its item in `gallery.html`.
+
+**Daughter's closet video (pending).** Its slot in `gallery.html` deliberately has **no `<source>`**, so it makes no
+request (and no 404) until the file exists. When the video arrives:
+
+1. Transcode it as above and save `assets/video/daughter-closet.mp4` (and optionally `daughter-closet.webm`).
+2. Inside that `<video>`, add `<source src="assets/video/daughter-closet.webm" type="video/webm">` (if made) and
+   `<source src="assets/video/daughter-closet.mp4" type="video/mp4">`.
+3. Optionally export a poster frame (`daughter-closet-poster.webp`) and point `poster=` at it in place of the illustrated SVG.
+   If the video is 9:16, change `ratio-portrait` to `ratio-reel` and set `width="608" height="1080"`.
+4. Remove `data-pending="true"`, the `<span class="ph-label">Video coming soon</span>`, and the "on its way" note,
+   and replace `[Theme]`. Then update the closet tile in `index.html` the same way.
 
 ## Deploy to GitHub Pages
 
@@ -176,14 +240,14 @@ Cody's headshot (`assets/images/about/cody.webp` / `.jpg`, 640 × 800) was cropp
 
 | Control | Where |
 |---|---|
-| **Strict Content-Security-Policy**: `default-src 'self'`; scripts, styles, fonts, and images only from `'self'` (plus `data:` images); `object-src 'none'`; `base-uri 'self'`; `form-action 'self'`; `frame-ancestors 'none'`; `upgrade-insecure-requests` | `_headers` (HTTP) + `<meta http-equiv>` fallback in every page |
+| **Strict Content-Security-Policy**: `default-src 'self'`; scripts, styles, fonts, images, and media (video/audio) only from `'self'` (plus `data:` images); `object-src 'none'`; `base-uri 'self'`; `form-action 'self'`; `frame-ancestors 'none'`; `upgrade-insecure-requests` | `_headers` (HTTP) + `<meta http-equiv>` fallback in every page |
 | **No inline JS or event handlers.** All behavior lives in `js/main.js`, so there's no `'unsafe-inline'` | all pages |
 | **Zero third-party requests.** Fonts are self-hosted and there are no CDNs, analytics, or trackers. Any future external resource must use Subresource Integrity + `crossorigin` | `assets/fonts/` |
 | **Security headers**: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, microphone, geolocation… off), `Strict-Transport-Security`, COOP/CORP | `_headers` |
 | **Safe DOM updates.** User input and captions are written with `textContent`, never `innerHTML`. The lightbox only loads same-origin image URLs | `js/main.js` |
 | **Form hardening**: `maxlength` on every field, email/tel types and patterns, trimming and control-character stripping, a hidden honeypot | `index.html`, `js/main.js` |
 | **`rel="noopener noreferrer"`** on outbound links | all pages |
-| **Repo hygiene and privacy**: `.gitignore` blocks `.env*`, keys, and OS files. No secrets are committed. Photo metadata (EXIF/GPS) is stripped | `.gitignore`, `assets/images/` |
+| **Repo hygiene and privacy**: `.gitignore` blocks `.env*`, keys, and OS files. No secrets are committed. Photo and video metadata (EXIF, QuickTime GPS, device, and dates) is stripped | `.gitignore`, `assets/images/`, `assets/video/` |
 | **Disclosure policy** | `SECURITY.md` |
 
 **Hosting notes.** Netlify and Cloudflare Pages read `_headers` automatically. **GitHub Pages cannot set custom
@@ -202,10 +266,10 @@ Netlify Forms, or a serverless function) with **server-side validation and sanit
 
 ## Roadmap
 
-- Real project photography (responsive `srcset`, AVIF/WebP), plus Jessica's portrait and family photos.
+- Real project photography (responsive `srcset`, AVIF/WebP), Jessica's portrait, and the daughter's closet video.
 - Connect the form to **Formspree** or **Netlify Forms** with server-side validation and spam protection.
 - Individual project case-study pages linked from the gallery, and a dedicated Trade Program page.
-- Embed the Behind-the-Build videos (with captions), and add privacy policy and terms pages.
+- Self-host the Behind-the-Build videos (with WebVTT captions), and add privacy policy and terms pages.
 - `LocalBusiness` structured data (JSON-LD in an external file), plus Lighthouse and axe checks in CI.
 
 ## License

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Security: strict CSP. Everything (scripts, styles, fonts, images) is self-hosted.
        frame-ancestors cannot be set via <meta>; it is sent as an HTTP header in _headers. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Fox &amp; Fable | Bespoke Playhouses &amp; Bunk Rooms, Kaysville UT</title>
   <meta name="description" content="Fox &amp; Fable designs and builds heirloom-quality indoor playhouses and bunk rooms in Kaysville, Utah. Story-First design for families, interior designers, and commercial spaces across Davis County and Northern Utah.">
@@ -330,18 +330,26 @@
         <header class="section-head section-head-row">
           <div>
             <p class="eyebrow">Gallery</p>
-            <h2 id="teaser-title">Finished worlds, coming soon.</h2>
+            <h2 id="teaser-title">Our first projects, and more on the way.</h2>
           </div>
-          <p class="build-links">Photos of completed playhouses, bunk rooms, and commercial spaces will live in our project gallery.</p>
+          <p class="build-links">It starts with a Color Drench custom pantry and a closet built for our daughter. Photos of completed playhouses, bunk rooms, and commercial spaces will follow in the gallery.</p>
         </header>
         <div class="teaser-grid">
           <figure class="photo ratio-landscape">
-            <img src="assets/images/placeholders/landscape.svg" width="1600" height="1200" loading="lazy" decoding="async" alt="Placeholder for a completed playhouse project photo">
-            <span class="ph-label">Project photo placeholder</span>
+            <a href="gallery.html" class="teaser-link">
+              <picture>
+                <source srcset="assets/images/gallery/pantry-poster.webp" type="image/webp">
+                <img src="assets/images/gallery/pantry-poster.jpg" width="608" height="1080" loading="lazy" decoding="async" alt="Color Drench custom pantry: fluted blue-gray cabinets, open shelves, and brass hardware">
+              </picture>
+            </a>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> Custom pantry · Color Drench · <a href="gallery.html">Watch the video</a></figcaption>
           </figure>
           <figure class="photo ratio-square">
-            <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a completed bunk room project photo">
-            <span class="ph-label">Project photo placeholder</span>
+            <a href="gallery.html" class="teaser-link">
+              <img src="assets/images/gallery/daughter-closet-poster.svg" width="1600" height="2000" loading="lazy" decoding="async" alt="Illustrated poster for the custom closet project; the video is coming soon">
+            </a>
+            <span class="ph-label">Video coming soon</span>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> Custom closet for our daughter</figcaption>
           </figure>
           <figure class="photo ratio-square">
             <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a completed commercial project photo">

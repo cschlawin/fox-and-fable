@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Security: strict CSP. Everything (scripts, styles, fonts, images) is self-hosted.
        frame-ancestors cannot be set via <meta>; it is sent as an HTTP header in _headers. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Our Story | About Fox &amp; Fable, Kaysville UT</title>
   <meta name="description" content="Meet the family behind Fox &amp; Fable, a Kaysville, Utah design-build studio creating heirloom-quality indoor playhouses and bunk rooms.">
@@ -118,26 +118,23 @@
           <h2 id="family-title" class="family-title">Our family</h2>
           <p class="prompt">[A sentence or two about the family and why building imaginative spaces for kids matters to you.]</p>
           <div class="family-grid">
-          <figure class="photo ratio-square">
-            <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a Fox &amp; Fable family photo">
-            <span class="ph-label">Photo placeholder: family</span>
-            <figcaption>[Optional caption, e.g. who is pictured and where]</figcaption>
-          </figure>
-          <figure class="photo ratio-square">
-            <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a Fox &amp; Fable family photo">
-            <span class="ph-label">Photo placeholder: family</span>
-            <figcaption>[Optional caption, e.g. who is pictured and where]</figcaption>
-          </figure>
-          <figure class="photo ratio-square">
-            <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a Fox &amp; Fable family photo">
-            <span class="ph-label">Photo placeholder: family</span>
-            <figcaption>[Optional caption, e.g. who is pictured and where]</figcaption>
-          </figure>
-          <figure class="photo ratio-square">
-            <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a Fox &amp; Fable family photo">
-            <span class="ph-label">Photo placeholder: family</span>
-            <figcaption>[Optional caption, e.g. who is pictured and where]</figcaption>
-          </figure>
+            <figure class="photo ratio-tall family-featured">
+              <picture>
+                <source srcset="assets/images/about/family.webp" type="image/webp">
+                <img src="assets/images/about/family.jpg" width="557" height="743" loading="lazy" decoding="async" alt="The Schlawin family — Cody, Jessica, and their three children — in the mountains in winter">
+              </picture>
+              <figcaption>[Optional caption, e.g. where and when this was taken]</figcaption>
+            </figure>
+            <figure class="photo ratio-square">
+              <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a Fox &amp; Fable family photo">
+              <span class="ph-label">Photo placeholder: family</span>
+              <figcaption>[Optional caption, e.g. who is pictured and where]</figcaption>
+            </figure>
+            <figure class="photo ratio-square">
+              <img src="assets/images/placeholders/square.svg" width="1600" height="1600" loading="lazy" decoding="async" alt="Placeholder for a Fox &amp; Fable family photo">
+              <span class="ph-label">Photo placeholder: family</span>
+              <figcaption>[Optional caption, e.g. who is pictured and where]</figcaption>
+            </figure>
           </div>
         </section>
       </div>
