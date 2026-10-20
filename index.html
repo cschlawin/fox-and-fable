@@ -33,9 +33,9 @@
 
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
   <!-- Loaded (not deferred) so it can swap .no-js → .js before first paint; DOM work waits for DOMContentLoaded. -->
-  <script src="js/main.js?v=10"></script>
+  <script src="js/main.js?v=11"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -56,12 +56,9 @@
       <nav id="primary-nav" class="primary-nav" aria-label="Primary">
         <ul>
           <li><a href="#worlds">Worlds</a></li>
-          <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-          <li hidden><a href="#process">Process</a></li>
-          <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-          <li hidden><a href="#designers">For Designers</a></li>
-          <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-          <li hidden><a href="#commercial">Commercial</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#designers">For Designers</a></li>
+          <li><a href="#commercial">Commercial</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="about.html">About</a></li>
           <li class="nav-cta-item"><a class="btn btn-primary btn-sm" href="#consult">Book a Consultation</a></li>
@@ -83,7 +80,7 @@
             <a class="btn btn-primary" href="#consult">Book a Consultation</a>
             <a class="btn btn-ghost" href="gallery.html">Explore the Gallery</a>
           </div>
-          <p class="hero-note">Bespoke playhouses &amp; bunk rooms · Kaysville, Utah</p>
+          <p class="hero-note">Bespoke playhouses &amp; bunk rooms · Kaysville, Utah<br>Projects start at $10,000</p>
         </div>
 
         <figure class="hero-art">
@@ -234,8 +231,7 @@
     </section>
 
     <!-- ===================== Process ===================== -->
-    <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-    <section id="process" class="section process" hidden aria-labelledby="process-title">
+    <section id="process" class="section process" aria-labelledby="process-title">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">The Story-First Process</p>
@@ -303,8 +299,7 @@
     </section>
 
     <!-- ===================== For Designers ===================== -->
-    <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-    <section id="designers" class="section designers" hidden aria-labelledby="designers-title">
+    <section id="designers" class="section designers" aria-labelledby="designers-title">
       <div class="container split">
         <div>
           <p class="eyebrow eyebrow-light">For Designers &amp; Builders</p>
@@ -326,8 +321,7 @@
     </section>
 
     <!-- ===================== Commercial ===================== -->
-    <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-    <section id="commercial" class="section commercial" hidden aria-labelledby="commercial-title">
+    <section id="commercial" class="section commercial" aria-labelledby="commercial-title">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Commercial Spaces</p>
@@ -402,7 +396,7 @@
         <div class="consult-intro">
           <p class="eyebrow">Book a Consultation</p>
           <h2 id="consult-title">Tell us about the world you're imagining.</h2>
-          <p>Share a few details and we'll follow up to schedule a design consultation, in your home or virtually. Projects start at $5,000.</p>
+          <p>Share a few details and we'll follow up to schedule a design consultation, in your home or virtually. Projects start at $10,000.</p>
           <p class="mockup-note" role="note"><strong>Design mockup:</strong> this form checks your entries in the browser but does not send them anywhere yet.</p>
         </div>
 
@@ -461,7 +455,6 @@
               <label for="budget">Budget range <span class="req" aria-hidden="true">*</span></label>
               <select id="budget" name="budget" required aria-describedby="budget-error">
                 <option value="">Choose a range</option>
-                <option>$5,000–$10,000</option>
                 <option>$10,000–$20,000</option>
                 <option>$20,000–$35,000</option>
                 <option>$35,000+</option>
@@ -514,12 +507,10 @@
         <p class="footer-heading">Explore</p>
         <ul class="list-reset">
           <li><a href="#worlds">Worlds</a></li>
-          <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-          <li hidden><a href="#process">Process</a></li>
+          <li><a href="#process">Process</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="about.html">About</a></li>
-          <!-- hidden 2026-10-20 per Cody; remove hidden to restore -->
-          <li hidden><a href="#designers">For Designers</a></li>
+          <li><a href="#designers">For Designers</a></li>
           <li><a href="#consult">Book a Consultation</a></li>
         </ul>
       </nav>
