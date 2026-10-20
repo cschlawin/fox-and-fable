@@ -33,9 +33,9 @@
 
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="stylesheet" href="css/styles.css?v=13">
   <!-- Loaded (not deferred) so it can swap .no-js → .js before first paint; DOM work waits for DOMContentLoaded. -->
-  <script src="js/main.js?v=12"></script>
+  <script src="js/main.js?v=13"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -83,12 +83,14 @@
           <p class="hero-note">Bespoke playhouses &amp; bunk rooms · Kaysville, Utah<br>Projects start at $10,000</p>
         </div>
 
-        <figure class="hero-art">
-          <div class="logo-panel">
-            <picture><source type="image/webp" srcset="assets/logo/lockup-520.webp 520w, assets/logo/lockup-1040.webp 1040w" sizes="(min-width: 960px) 460px, calc(100vw - 6rem)"><img class="hero-logo" src="assets/logo/lockup-520.png" srcset="assets/logo/lockup-520.png 520w, assets/logo/lockup-1040.png 1040w" sizes="(min-width: 960px) 460px, calc(100vw - 6rem)" width="520" height="359" alt="Fox &amp; Fable Design + Construction"></picture>
-          </div>
-          <figcaption class="placeholder-tag">Our mark, as it will be branded into every build</figcaption>
-        </figure>
+        <div class="hero-art">
+          <picture>
+            <source type="image/webp" srcset="assets/images/hero/brand-sign-520.webp 520w, assets/images/hero/brand-sign-800.webp 800w, assets/images/hero/brand-sign-1040.webp 1040w, assets/images/hero/brand-sign-1312.webp 1312w" sizes="(min-width: 960px) 520px, calc(100vw - 3rem)">
+            <img class="hero-sign" src="assets/images/hero/brand-sign-800.jpg" srcset="assets/images/hero/brand-sign-520.jpg 520w, assets/images/hero/brand-sign-800.jpg 800w, assets/images/hero/brand-sign-1040.jpg 1040w, assets/images/hero/brand-sign-1312.jpg 1312w" sizes="(min-width: 960px) 520px, calc(100vw - 3rem)"
+                 width="1312" height="1199" fetchpriority="high" decoding="async"
+                 alt="Rendering of the Fox &amp; Fable sign: the FF monogram with a seated fox and the words FOX &amp; FABLE, Design + Construction, as dimensional bronze letters on a limestone wall in warm golden-hour light">
+          </picture>
+        </div>
       </div>
     </section>
 

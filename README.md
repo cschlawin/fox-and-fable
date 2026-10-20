@@ -14,7 +14,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 
 | Page | What's on it |
 |---|---|
-| `index.html` | Hero with the logo, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
+| `index.html` | Hero with the bronze-sign rendering of the logo, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
 | `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
 | `gallery.html` | Thirteen slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), six photo-set projects (a built-in playhouse with a before photo, a 2-story indoor cottage playhouse in Mooresville, NC with an in-progress build photo, a stone-wall primary bedroom, a great room with a stone fireplace, four finished photos and a before photo, a custom home office and gym with a Murphy bed and an in-progress build photo (six photos), and a laundry room with a built-in dog kennel in Mooresville, NC with a before photo), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Living Spaces / Offices & Flex Rooms / Laundry Rooms / Commercial) and an accessible `<dialog>` lightbox for photos |
 
@@ -22,7 +22,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 
 - **FF monogram logo** (October 2026). The originals live in `docs/brand-reference/`: the primary lockup
   (`fox-and-fable-logo-original.png`) and the brand sheet (`fox-and-fable-brand-sheet.png`). `tools/build-logo-assets.py`
-  builds the web assets into `assets/logo/`: the full lockup for the hero card (WebP + PNG, 520/1040 `srcset`, on the
+  builds the web assets into `assets/logo/`: the full lockup (WebP + PNG, 520/1040 `srcset`, on the
   artwork's own paper with a matching `#F0ECE5` card), the FF + fox monogram for the nav (1x/2x/3x, keyed to
   transparency) beside the live-text wordmark, the horizontal light lockup from the brand sheet for the charcoal footer
   (keyed off its olive panel so there's no box edge), a "burned" monogram for the oak brand stamp, plus the favicon
@@ -47,7 +47,7 @@ site/
 ├── css/styles.css            # Mobile-first stylesheet built on design tokens
 ├── js/main.js                # Nav, form validation, gallery filters + lightbox
 ├── assets/
-│   ├── logo/                 # Generated logo assets (hero lockup, footer horizontal lockup, nav monogram, burned monogram), WebP + PNG
+│   ├── logo/                 # Generated logo assets (full lockup, footer horizontal lockup, nav monogram, burned monogram), WebP + PNG
 │   ├── favicon.ico, favicon-32.png, apple-touch-icon.png, icon-192.png, icon-512.png, og-image.png
 │   ├── fonts/                # Self-hosted Cormorant Garamond + Inter (woff2) + OFL licenses
 │   ├── video/                # Self-hosted MP4 (H.264/AAC) + WebM (VP9/Opus) pairs, metadata stripped
@@ -84,7 +84,7 @@ site/
 - **Typography.** *Cormorant Garamond* for headings and the spaced-caps wordmark (close to the logo's serif wordmark, with the `&` picked out in the accent color) and
   *Inter* for body text and the spaced-caps eyebrows (an echo of the logo's spaced-caps tagline). Each eyebrow gets a short rule
   like the one under the logo's descriptor.
-- **Logo showcase and "branded" motif.** The hero shows the full logo on a cream card; the values section keeps the oak-board stamp, now with the fox "burned" in.
+- **Logo showcase and "branded" motif.** The hero shows a rendering of the logo as a bronze sign on a limestone wall (`assets/images/hero/brand-sign-*`, uncaptioned); the values section keeps the oak-board stamp, now with the fox "burned" in.
 - **Honest content.** There are no invented testimonials, stats, awards, projects, or bios. Every slot is labeled as a placeholder.
 
 ## Accessibility notes
