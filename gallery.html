@@ -35,7 +35,7 @@
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css?v=9">
   <!-- Loaded (not deferred) so it can swap .no-js → .js before first paint; DOM work waits for DOMContentLoaded. -->
-  <script src="js/main.js?v=8"></script>
+  <script src="js/main.js?v=9"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -73,7 +73,7 @@
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h1 id="gallery-title">Project Gallery</h1>
-        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, and a stone-wall primary bedroom. The other slots are placeholders.</p>
+        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, a stone-wall primary bedroom, and a great room with a stone fireplace. The other slots are placeholders.</p>
       </div>
     </section>
 
@@ -86,6 +86,7 @@
           <button class="filter-btn" type="button" data-filter="bunk-rooms" aria-pressed="false">Bunk Rooms</button>
           <button class="filter-btn" type="button" data-filter="closets" aria-pressed="false">Closets &amp; Built-ins</button>
           <button class="filter-btn" type="button" data-filter="bedrooms" aria-pressed="false">Bedrooms</button>
+          <button class="filter-btn" type="button" data-filter="living-spaces" aria-pressed="false">Living Spaces</button>
           <button class="filter-btn" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
         </div>
         <p class="gallery-status" id="gallery-status" role="status" aria-live="polite"></p>
@@ -171,6 +172,22 @@
                  data-alt="Before: the same bedroom with a plain white wall behind the iron canopy bed, before the stone accent wall and timber beams were added">Before</a>
             </div>
             <figcaption><span class="gallery-cat">Bedroom</span> <span class="gallery-meta">Primary bedroom · Stone accent wall &amp; timber beams · Kaysville, UT</span></figcaption>
+          </figure>
+          <!-- Photo-set item: stone fireplace. Cover = finished; the lightbox set runs After → Before. -->
+          <figure class="gallery-item photo ratio-portrait" data-category="living-spaces">
+            <a class="gallery-link" href="assets/images/gallery/stone-fireplace-1.webp" data-width="1320" data-height="1760">
+              <picture>
+                <source type="image/webp" srcset="assets/images/gallery/stone-fireplace-1-card-480.webp 480w, assets/images/gallery/stone-fireplace-1-card-960.webp 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)">
+                <img src="assets/images/gallery/stone-fireplace-1-card-480.jpg" srcset="assets/images/gallery/stone-fireplace-1-card-480.jpg 480w, assets/images/gallery/stone-fireplace-1-card-960.jpg 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)" width="480" height="600" loading="lazy" decoding="async"
+                     alt="Two-story great room with a floor-to-ceiling cream limestone fireplace, a rustic wood beam mantel, a raised stone hearth around a linear fireplace, a candle chandelier, and tall windows looking out over the valley at dusk">
+              </picture>
+            </a>
+            <span class="set-count" aria-hidden="true">2 photos</span>
+            <div class="gallery-set" hidden>
+              <a href="assets/images/gallery/stone-fireplace-before.webp" data-width="1320" data-height="1760" data-label="Before"
+                 data-alt="Before: the same great room empty, with a plain white drywall chase, a small floating shelf, and the linear fireplace, before the stone surround was built">Before</a>
+            </div>
+            <figcaption><span class="gallery-cat">Living Spaces</span> <span class="gallery-meta">Great room · Stone fireplace · Kaysville, UT</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-portrait" data-category="bunk-rooms">

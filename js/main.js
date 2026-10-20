@@ -171,7 +171,7 @@
 
   // 4. Gallery -----------------------------------------------------------------
   // Markup contract (gallery.html): each project is
-  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|closets|bedrooms|commercial"> (space-separated for more than one)
+  //   <figure class="gallery-item" data-category="playhouses|bunk-rooms|closets|bedrooms|living-spaces|commercial"> (space-separated for more than one)
   //     <a class="gallery-link" href="full-size image"><img alt="..."></a>
   //     <div class="gallery-set" hidden><a href="photo-2" data-alt="..." data-width data-height></a>…</div>  (optional)
   //     <figcaption>...</figcaption>
