@@ -359,6 +359,8 @@ main:focus { outline: none; }
 
 /* 9g. Gallery teaser ----------------------------------------------------- */
 .teaser { background: var(--c-parchment-2); } /* alternate band: hero / gallery / worlds / process */
+/* While the Process section is hidden (2026-10-20), Values takes its alternate band. Inert once it is restored. */
+.process[hidden] + .values { background: var(--c-parchment-2); }
 .teaser-grid { display: grid; gap: var(--space-3); grid-template-columns: repeat(2, 1fr); }
 .teaser-grid figure:first-child { grid-column: 1 / -1; }
 .teaser-more { margin-top: var(--space-5); }
