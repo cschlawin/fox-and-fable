@@ -358,6 +358,7 @@ main:focus { outline: none; }
 .testimonial-slot figcaption { margin-top: var(--space-3); }
 
 /* 9g. Gallery teaser ----------------------------------------------------- */
+.teaser { background: var(--c-parchment-2); } /* alternate band: hero / gallery / worlds / process */
 .teaser-grid { display: grid; gap: var(--space-3); grid-template-columns: repeat(2, 1fr); }
 .teaser-grid figure:first-child { grid-column: 1 / -1; }
 .teaser-more { margin-top: var(--space-5); }
