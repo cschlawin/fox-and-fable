@@ -16,7 +16,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 |---|---|
 | `index.html` | Hero with the logo, Featured Worlds, Story-First Process, values, designer Trade Program, commercial spaces, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form |
 | `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
-| `gallery.html` | Eleven slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), four photo-set projects (a built-in playhouse with a before photo, a stone-wall primary bedroom, a great room with a stone fireplace and its before photo, and a custom home office and gym with a Murphy bed, five photos), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Living Spaces / Offices & Flex Rooms / Commercial) and an accessible `<dialog>` lightbox for photos |
+| `gallery.html` | Twelve slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), five photo-set projects (a built-in playhouse with a before photo, a 2-story indoor cottage playhouse in Mooresville, NC with an in-progress build photo, a stone-wall primary bedroom, a great room with a stone fireplace and its before photo, and a custom home office and gym with a Murphy bed, five photos), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Living Spaces / Offices & Flex Rooms / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
 
@@ -168,7 +168,7 @@ the original carried a copyright notice that was removed with the rest of the me
 3. Ask clients for permission before publishing photos of their home, and never include names or street addresses.
 
 **Multi-photo projects.** To give a project extra photos, add a hidden set after its cover link. The lightbox cycles
-through the set with ← / → and shows "2 / 3". Add `data-label="Before"` to a slide and the indicator reads "3 / 3 · Before":
+through the set with ← / → and shows "2 / 3". Add `data-label="Before"` to a slide and the indicator reads "3 / 3 · Before" (any label works, e.g. `data-label="In progress"`):
 
 ```html
 <div class="gallery-set" hidden>
