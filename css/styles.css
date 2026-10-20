@@ -421,6 +421,37 @@ main:focus { outline: none; }
 .form-status.is-success { background: #eef0e6; color: var(--c-success); border-left: 4px solid var(--c-success); }
 .form-status.is-success strong { display: block; font-family: var(--font-serif); font-size: 1.5rem; color: var(--c-ink); }
 .hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+/* "Share your space" upload: the native file input covers the whole zone, so click, tap and drag-and-drop all work (also with JS off). */
+.field-help { font-size: 0.9rem; color: var(--c-iron); max-width: 46rem; }
+.upload-zone {
+  position: relative; display: grid; justify-items: center; gap: 0.3rem; margin-top: 0.25rem;
+  padding: var(--space-4) var(--space-3); text-align: center; background: var(--c-parchment);
+  border: 1.5px dashed var(--c-oak); border-radius: var(--radius); transition: border-color .2s, background-color .2s, box-shadow .2s;
+}
+.upload-zone:hover, .upload-zone.is-dragover { border-color: var(--c-ink); background: var(--c-parchment-2); }
+.upload-zone:focus-within { border-style: solid; border-color: var(--c-ink); box-shadow: 0 0 0 3px rgb(176 122 69 / 0.55); }
+.upload-zone.is-invalid { border-color: var(--c-error); background: #fbf0ec; }
+.upload-icon { width: 36px; height: 36px; color: var(--c-oak-deep); }
+.upload-title { font-weight: 500; color: var(--c-ink); }
+.upload-cta { color: var(--c-oak-deep); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.upload-limits { font-size: 0.8rem; color: var(--c-iron); }
+.field .upload-zone input[type="file"] {
+  position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; padding: 0; border: 0;
+  opacity: 0; cursor: pointer;
+}
+.file-list { display: grid; gap: 0.4rem; margin-top: 0.25rem; }
+.file-list li {
+  display: flex; align-items: center; gap: var(--space-3); padding: 0.45rem 0.5rem 0.45rem 0.85rem;
+  background: #fff; border: 1px solid rgb(43 42 40 / 0.14); border-radius: var(--radius-sm); font-size: 0.9rem;
+}
+.file-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-ink); }
+.file-size { color: var(--c-iron); font-size: 0.8rem; white-space: nowrap; }
+.file-remove {
+  flex: none; min-height: 36px; padding: 0.3rem 0.75rem; border: 1px solid transparent; border-radius: 999px;
+  background: transparent; color: var(--c-oak-deep); font-size: 0.8rem; font-weight: 600; cursor: pointer;
+}
+.file-remove:hover { background: var(--c-parchment-2); color: var(--c-ink); }
+.file-count { font-size: 0.8rem; color: var(--c-iron); }
 
 /* 11. About page --------------------------------------------------------- */
 .founder { display: grid; gap: var(--space-5); align-items: start; }

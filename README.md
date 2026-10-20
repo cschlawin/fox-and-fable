@@ -265,7 +265,7 @@ for name signs or decals, house numbers, readable family photos, and faces.
 
 | Control | Where |
 |---|---|
-| **Strict Content-Security-Policy**: `default-src 'self'`; scripts, styles, fonts, images, and media (video/audio) only from `'self'` (plus `data:` images); `object-src 'none'`; `base-uri 'self'`; `form-action 'self'`; `frame-ancestors 'none'`; `upgrade-insecure-requests` | `_headers` (HTTP) + `<meta http-equiv>` fallback in every page |
+| **Strict Content-Security-Policy**: `default-src 'self'`; scripts, styles, fonts, images, and media (video/audio) only from `'self'` (plus `data:` images); `object-src 'none'`; `base-uri 'self'`; `form-action 'none'` (the form is a mock-up and can never submit); `frame-ancestors 'none'`; `upgrade-insecure-requests` | `_headers` (HTTP) + `<meta http-equiv>` fallback in every page |
 | **No inline JS or event handlers.** All behavior lives in `js/main.js`, so there's no `'unsafe-inline'` | all pages |
 | **Zero third-party requests.** Fonts are self-hosted and there are no CDNs, analytics, or trackers. Any future external resource must use Subresource Integrity + `crossorigin` | `assets/fonts/` |
 | **Security headers**: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, microphone, geolocation… off), `Strict-Transport-Security`, COOP/CORP | `_headers` |
@@ -278,6 +278,8 @@ for name signs or decals, house numbers, readable family photos, and faces.
 **Hosting notes.** Netlify and Cloudflare Pages read `_headers` automatically. **GitHub Pages cannot set custom
 headers**, so there the `<meta>` CSP and referrer policy are the fallback (`frame-ancestors` and `X-Frame-Options`
 don't work from a meta tag). Enable **Enforce HTTPS**, or put the site behind Cloudflare for full header support.
+
+**The consultation form is a mock-up on purpose.** It has no `action`, the CSP sets `form-action 'none'`, `main.js` blocks submit and only shows a "preview, nothing was sent" note, and the "Share your space" upload only lists the chosen file names locally (the file input has no `name`, and files are never read or uploaded). No fetch/XHR is made.
 
 **Client-side validation is not security.** A real submission must go through a backend or form service (Formspree,
 Netlify Forms, or a serverless function) with **server-side validation and sanitization, rate limiting, and spam protection**
@@ -294,7 +296,7 @@ Netlify Forms, or a serverless function) with **server-side validation and sanit
 ## Roadmap
 
 - Real project photography (responsive `srcset`, AVIF/WebP), Jessica's portrait, and WebVTT captions for the videos.
-- Connect the form to **Formspree** or **Netlify Forms** with server-side validation and spam protection.
+- After the mock-up / business-design phase, decide whether and how the form should deliver submissions and uploads (it intentionally sends nothing today).
 - Individual project case-study pages linked from the gallery, and a dedicated Trade Program page.
 - Self-host the Behind-the-Build videos (with WebVTT captions), and add privacy policy and terms pages.
 - `LocalBusiness` structured data (JSON-LD in an external file), plus Lighthouse and axe checks in CI.

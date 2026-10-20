@@ -3,7 +3,7 @@
  * Vanilla JS, no dependencies. Loaded from 'self' only (see CSP).
  *  1. Progressive-enhancement flag (.no-js → .js)
  *  2. Mobile navigation toggle
- *  3. Consultation form: client-side validation + mockup success state
+ *  3. Consultation form: client-side validation + "preview only" note (mock-up: never submits, never uploads)
  *  4. Gallery: category filters + accessible <dialog> lightbox
  *
  * Security notes:
@@ -102,8 +102,10 @@
       if (e.target.getAttribute("aria-invalid") === "true") validateField(form, e.target.name);
     });
 
+    var files = initUpload(form);
+
     form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Mockup: nothing is sent anywhere.
+      e.preventDefault(); // Mock-up: nothing is ever sent or uploaded (the CSP also sets form-action 'none').
 
       // Honeypot: real people never see this field. Silently "succeed" for bots.
       if (form.elements.website && form.elements.website.value !== "") {
@@ -119,6 +121,10 @@
           if (!firstInvalid) firstInvalid = form.elements[name];
         }
       });
+      if (files && !files.validate()) {
+        errors++;
+        if (!firstInvalid) firstInvalid = files.input;
+      }
 
       status.className = "form-status";
       status.replaceChildren();
@@ -132,19 +138,123 @@
         return;
       }
 
-      // Success state. Built with DOM nodes + textContent (never innerHTML).
+      // Preview note. Built with DOM nodes + textContent (never innerHTML). The form is NOT reset,
+      // so the visitor keeps what they typed and can copy it into an email.
       var firstName = clean(form.elements.name.value).split(/\s+/)[0];
       var heading = document.createElement("strong");
       heading.textContent = "Thank you, " + firstName + ".";
       var body = document.createElement("span");
-      body.textContent = " Your story has been noted. (Mockup only: nothing was sent. A live site would deliver this to the Fox & Fable team.)";
+      body.append("This form is a preview, and nothing was sent" + (files && files.count() ? " or uploaded" : "") +
+        ". Please email us at ");
+      var mail = document.createElement("a");
+      mail.href = "mailto:hello@foxandfable.com";
+      mail.textContent = "hello@foxandfable.com";
+      body.append(mail, " to start a project.");
       status.classList.add("is-success");
       status.append(heading, body);
-      form.reset();
-      if (counter) counter.textContent = "0 / " + RULES.message.max + " characters";
       status.setAttribute("tabindex", "-1");
       status.focus();
     });
+  }
+
+  // "Share your space" upload (mock-up). Only the names, sizes and types of the chosen files are looked at
+  // to list them; files are never read, uploaded or sent anywhere (the input has no name attribute).
+  var UPLOAD = {
+    maxFiles: 10,
+    maxBytes: 10 * 1024 * 1024,
+    exts: ["jpg", "jpeg", "png", "webp", "heic", "heif", "pdf"]
+  };
+  function formatSize(bytes) {
+    return bytes >= 1048576 ? (bytes / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(bytes / 1024)) + " KB";
+  }
+  function initUpload(form) {
+    var input = document.getElementById("files");
+    var list = document.getElementById("files-list");
+    var error = document.getElementById("files-error");
+    if (!input || !list || !error) return null;
+    var zone = input.closest(".upload-zone");
+    var selected = [];
+    var canEdit = typeof DataTransfer === "function";
+    try { if (canEdit) new DataTransfer(); } catch (err) { canEdit = false; }
+
+    function setError(msg) {
+      error.textContent = msg;
+      if (msg) { input.setAttribute("aria-invalid", "true"); zone.classList.add("is-invalid"); }
+      else { input.removeAttribute("aria-invalid"); zone.classList.remove("is-invalid"); }
+    }
+    function sync() {
+      if (!canEdit) return;
+      var dt = new DataTransfer();
+      selected.forEach(function (f) { dt.items.add(f); });
+      input.files = dt.files;
+    }
+    function render() {
+      list.replaceChildren();
+      selected.forEach(function (f, i) {
+        var li = document.createElement("li");
+        var name = document.createElement("span");
+        name.className = "file-name";
+        name.textContent = f.name;
+        name.title = f.name;
+        var size = document.createElement("span");
+        size.className = "file-size";
+        size.textContent = formatSize(f.size);
+        li.append(name, size);
+        if (canEdit) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "file-remove";
+          btn.textContent = "Remove";
+          btn.setAttribute("aria-label", "Remove " + f.name);
+          btn.addEventListener("click", function () {
+            selected.splice(i, 1);
+            sync(); render(); setError("");
+            input.focus();
+          });
+          li.append(btn);
+        }
+        list.append(li);
+      });
+      list.hidden = selected.length === 0;
+    }
+    function ok(f) {
+      var ext = (f.name.split(".").pop() || "").toLowerCase();
+      return UPLOAD.exts.indexOf(ext) !== -1;
+    }
+
+    input.addEventListener("change", function () {
+      var incoming = Array.prototype.slice.call(input.files || []);
+      var notes = [];
+      var base = canEdit ? selected.slice() : [];
+      incoming.forEach(function (f) {
+        if (!ok(f)) { notes.push(f.name + " isn't a JPG, PNG, HEIC, WebP or PDF."); return; }
+        if (f.size > UPLOAD.maxBytes) { notes.push(f.name + " is " + formatSize(f.size) + "; please keep each file under 10 MB."); return; }
+        var dup = base.some(function (g) { return g.name === f.name && g.size === f.size && g.lastModified === f.lastModified; });
+        if (dup) return;
+        if (base.length >= UPLOAD.maxFiles) { notes.push("You can share up to " + UPLOAD.maxFiles + " files, so some were left out."); return; }
+        base.push(f);
+      });
+      selected = base;
+      sync(); render();
+      // Keep only the first "up to 10" note.
+      setError(notes.filter(function (n, i) { return notes.indexOf(n) === i; }).join(" "));
+    });
+
+    ["dragenter", "dragover"].forEach(function (t) { input.addEventListener(t, function () { zone.classList.add("is-dragover"); }); });
+    ["dragleave", "drop"].forEach(function (t) { input.addEventListener(t, function () { zone.classList.remove("is-dragover"); }); });
+
+    return {
+      input: input,
+      count: function () { return selected.length; },
+      validate: function () {
+        var bad = selected.filter(function (f) { return !ok(f) || f.size > UPLOAD.maxBytes; });
+        if (bad.length || selected.length > UPLOAD.maxFiles) {
+          setError("Please remove files that aren't images or PDFs, are over 10 MB, or go past the 10-file limit.");
+          return false;
+        }
+        return true;
+      }
+    };
   }
 
   function validateField(form, name) {
