@@ -76,7 +76,7 @@
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h1 id="gallery-title">Project Gallery</h1>
-        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, offices &amp; flex rooms, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, a 2-story indoor cottage playhouse, a stone-wall primary bedroom, a great room with a stone fireplace, and a custom home office and gym with a hidden Murphy bed. The other slots are placeholders.</p>
+        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, offices &amp; flex rooms, laundry rooms, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, a 2-story indoor cottage playhouse, a stone-wall primary bedroom, a great room with a stone fireplace, a custom home office and gym with a hidden Murphy bed, and a laundry room with a built-in dog kennel. The other slots are placeholders.</p>
       </div>
     </section>
 
@@ -91,6 +91,7 @@
           <button class="filter-btn" type="button" data-filter="bedrooms" aria-pressed="false">Bedrooms</button>
           <button class="filter-btn" type="button" data-filter="living-spaces" aria-pressed="false">Living Spaces</button>
           <button class="filter-btn" type="button" data-filter="offices" aria-pressed="false">Offices &amp; Flex Rooms</button>
+          <button class="filter-btn" type="button" data-filter="laundry" aria-pressed="false">Laundry Rooms</button>
           <button class="filter-btn" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
         </div>
         <p class="gallery-status" id="gallery-status" role="status" aria-live="polite"></p>
@@ -242,6 +243,28 @@
                  data-alt="In progress: the playhouse frame being built in the garage, with the roof decking on and the green slide set beside it">In progress</a>
             </div>
             <figcaption><span class="gallery-cat">Playhouse</span> <span class="gallery-meta">Indoor playhouse · 2-story cottage playhouse · Mooresville, NC</span></figcaption>
+          </figure>
+          <!-- Photo-set item: Mooresville laundry room. Cover = counter and sink; the set runs wide → dog kennel → bowl drawer → Before. -->
+          <figure class="gallery-item photo ratio-portrait" data-category="laundry">
+            <a class="gallery-link" href="assets/images/gallery/laundry-nc-1.webp" data-width="1320" data-height="1760">
+              <picture>
+                <source type="image/webp" srcset="assets/images/gallery/laundry-nc-1-card-480.webp 480w, assets/images/gallery/laundry-nc-1-card-960.webp 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)">
+                <img src="assets/images/gallery/laundry-nc-1-card-480.jpg" srcset="assets/images/gallery/laundry-nc-1-card-480.jpg 480w, assets/images/gallery/laundry-nc-1-card-960.jpg 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)" width="480" height="600" loading="lazy" decoding="async"
+                     alt="Laundry room with dark green shaker cabinets, a butcher-block counter over a front-load washer and dryer, a black undermount sink with a matte black faucet, white subway tile, and a black hanging rod with wooden hangers">
+              </picture>
+            </a>
+            <span class="set-count" aria-hidden="true">5 photos</span>
+            <div class="gallery-set" hidden>
+              <a href="assets/images/gallery/laundry-nc-2.webp" data-width="1320" data-height="1760"
+                 data-alt="Wide evening view of the whole laundry room: tall green upper cabinets, the butcher-block counter running over the washer and dryer to the sink, subway tile to the ceiling, and the hanging rod">Photo 2</a>
+              <a href="assets/images/gallery/laundry-nc-3.webp" data-width="1320" data-height="1760"
+                 data-alt="The same counter with the built-in dog kennel under the sink open, two bulldogs resting inside beside its mesh-panel door">Photo 3</a>
+              <a href="assets/images/gallery/laundry-nc-4.webp" data-width="1320" data-height="1760"
+                 data-alt="Low-angle view of the green base cabinets: a pull-out drawer at floor level holding two stainless dog bowls, below the kennel's black mesh door">Photo 4</a>
+              <a href="assets/images/gallery/laundry-nc-before.webp" data-width="1320" data-height="1760" data-label="Before"
+                 data-alt="Before: the plain white laundry room with the washer and dryer against the wall, a wire shelf above, and a wire dog crate and bowls on the floor">Before</a>
+            </div>
+            <figcaption><span class="gallery-cat">Laundry Room</span> <span class="gallery-meta">Laundry room · Custom laundry &amp; dog kennel · Mooresville, NC</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-portrait" data-category="bunk-rooms">

@@ -16,7 +16,7 @@ Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk 
 |---|---|
 | `index.html` | Hero with the logo, Featured Worlds, Story-First Process*, values, designer Trade Program*, commercial spaces*, Behind-the-Build (painting time-lapse and workshop joinery videos), gallery teaser (Color Drench pantry, daughter's closet, his & her closets), consultation form. *Hidden since 2026-10-20 (`hidden` on the section and on its header/footer nav links on every page, each marked with an HTML comment); remove `hidden` to restore. |
 | `about.html` | "Our Story": Jessica's founder section (placeholder bio and portrait), three family photos (winter and snow portraits plus a summer landscape), brand story and values, consultation CTA |
-| `gallery.html` | Twelve slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), five photo-set projects (a built-in playhouse with a before photo, a 2-story indoor cottage playhouse in Mooresville, NC with an in-progress build photo, a stone-wall primary bedroom, a great room with a stone fireplace, four finished photos and a before photo, and a custom home office and gym with a Murphy bed and an in-progress build photo, six photos), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Living Spaces / Offices & Flex Rooms / Commercial) and an accessible `<dialog>` lightbox for photos |
+| `gallery.html` | Thirteen slots in a row-ordered grid, **finished projects only**: three self-hosted videos (the Color Drench pantry, the daughter's custom closet, his & her closets with a "See the before" button), six photo-set projects (a built-in playhouse with a before photo, a 2-story indoor cottage playhouse in Mooresville, NC with an in-progress build photo, a stone-wall primary bedroom, a great room with a stone fireplace, four finished photos and a before photo, a custom home office and gym with a Murphy bed and an in-progress build photo (six photos), and a laundry room with a built-in dog kennel in Mooresville, NC with a before photo), then four photo placeholders. Category filters (All / Playhouses / Bunk Rooms / Closets & Built-ins / Bedrooms / Living Spaces / Offices & Flex Rooms / Laundry Rooms / Commercial) and an accessible `<dialog>` lightbox for photos |
 
 ## Features
 
@@ -160,7 +160,7 @@ the original carried a copyright notice that was removed with the rest of the me
    </figure>
    ```
 
-   - `data-category` is one or more of `playhouses`, `bunk-rooms`, `closets`, `bedrooms`, `living-spaces`, `offices`, `commercial`, separated by spaces. These drive the filter buttons.
+   - `data-category` is one or more of `playhouses`, `bunk-rooms`, `closets`, `bedrooms`, `living-spaces`, `offices`, `laundry`, `commercial`, separated by spaces. These drive the filter buttons.
    - `ratio-landscape` (4:3), `ratio-portrait` (4:5), `ratio-square` (1:1), or `ratio-reel` (9:16, for vertical phone video) sets the frame shape.
    - The link `href` is what the lightbox shows. Keep it a local file (the lightbox only accepts same-origin URLs).
    - Write descriptive `alt` text: what's in the room, not "photo of project".
