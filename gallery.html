@@ -73,7 +73,7 @@
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h1 id="gallery-title">Project Gallery</h1>
-        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, a stone-wall primary bedroom, and a great room with a stone fireplace. The other slots are placeholders.</p>
+        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, offices &amp; flex rooms, and commercial spaces. Our first finished projects are up: the Color Drench custom pantry, a custom closet for our daughter, his &amp; her closets, a built-in playhouse, a stone-wall primary bedroom, a great room with a stone fireplace, and a custom home office and gym with a hidden Murphy bed. The other slots are placeholders.</p>
       </div>
     </section>
 
@@ -87,6 +87,7 @@
           <button class="filter-btn" type="button" data-filter="closets" aria-pressed="false">Closets &amp; Built-ins</button>
           <button class="filter-btn" type="button" data-filter="bedrooms" aria-pressed="false">Bedrooms</button>
           <button class="filter-btn" type="button" data-filter="living-spaces" aria-pressed="false">Living Spaces</button>
+          <button class="filter-btn" type="button" data-filter="offices" aria-pressed="false">Offices &amp; Flex Rooms</button>
           <button class="filter-btn" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
         </div>
         <p class="gallery-status" id="gallery-status" role="status" aria-live="polite"></p>
@@ -188,6 +189,28 @@
                  data-alt="Before: the same great room empty, with a plain white drywall chase, a small floating shelf, and the linear fireplace, before the stone surround was built">Before</a>
             </div>
             <figcaption><span class="gallery-cat">Living Spaces</span> <span class="gallery-meta">Great room · Stone fireplace · Kaysville, UT</span></figcaption>
+          </figure>
+          <!-- Photo-set item: custom office. Cover = office; the lightbox set runs Murphy bed → built-ins → gym (folded) → gym (in use). -->
+          <figure class="gallery-item photo ratio-portrait" data-category="offices">
+            <a class="gallery-link" href="assets/images/gallery/custom-office-1.webp" data-width="1320" data-height="990">
+              <picture>
+                <source type="image/webp" srcset="assets/images/gallery/custom-office-1-card-480.webp 480w, assets/images/gallery/custom-office-1-card-960.webp 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)">
+                <img src="assets/images/gallery/custom-office-1-card-480.jpg" srcset="assets/images/gallery/custom-office-1-card-480.jpg 480w, assets/images/gallery/custom-office-1-card-960.jpg 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)" width="480" height="600" loading="lazy" decoding="async"
+                     alt="Home office with a natural maple desk in front of a wall of floor-to-ceiling dark green built-in cabinets and open shelving, with a framed map on the side wall">
+              </picture>
+            </a>
+            <span class="set-count" aria-hidden="true">5 photos</span>
+            <div class="gallery-set" hidden>
+              <a href="assets/images/gallery/custom-office-2.webp" data-width="1320" data-height="990"
+                 data-alt="The same green built-in wall with the hidden Murphy bed folded down from the center cabinet and made up with white bedding">Photo 2</a>
+              <a href="assets/images/gallery/custom-office-3.webp" data-width="1320" data-height="990"
+                 data-alt="Straight-on view of the dark green built-ins closed, with the Murphy bed hidden behind the center doors and lit open shelves on each side">Photo 3</a>
+              <a href="assets/images/gallery/custom-office-4.webp" data-width="1320" data-height="1760"
+                 data-alt="Home gym corner across the room: a fold-away wall-mounted squat rack folded flat against a stained wood plank accent wall with a large mirror">Photo 4</a>
+              <a href="assets/images/gallery/custom-office-5.webp" data-width="1320" data-height="1760"
+                 data-alt="The same gym corner with the squat rack folded out, a loaded barbell on the hooks, and a flat bench in front of the mirror">Photo 5</a>
+            </div>
+            <figcaption><span class="gallery-cat">Offices &amp; Flex Rooms</span> <span class="gallery-meta">Home office &amp; gym · Custom office · Mooresville, NC</span></figcaption>
           </figure>
           <!-- Photo item: copy this <figure> block to add a project (see README "Adding gallery photos") -->
           <figure class="gallery-item photo ratio-portrait" data-category="bunk-rooms">
