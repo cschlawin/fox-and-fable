@@ -2,6 +2,7 @@
 # (GitHub Pages ignores this file; see README > Security.)
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; manifest-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Robots-Tag: noindex, nofollow
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
