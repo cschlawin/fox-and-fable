@@ -97,6 +97,48 @@
         <p class="gallery-status" id="gallery-status" role="status" aria-live="polite"></p>
 
         <div class="gallery-grid" id="gallery-grid">
+          <!-- Video item: Color Drench custom pantry (self-hosted; plays inline, not in the lightbox).
+               Captions: add <track kind="captions" src="assets/video/custom-pantry.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
+          <figure class="gallery-item photo ratio-reel video-item" data-category="pantries">
+            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
+                   poster="assets/images/gallery/pantry-poster.webp"
+                   aria-label="Video: Color Drench custom pantry built by Fox &amp; Fable">
+              <source src="assets/video/custom-pantry.webm" type="video/webm">
+              <source src="assets/video/custom-pantry.mp4" type="video/mp4">
+              <p>Your browser doesn't support embedded video. <a href="assets/video/custom-pantry.mp4">Download the pantry video (MP4)</a>.</p>
+            </video>
+            <figcaption><span class="gallery-cat">Pantry</span> <span class="gallery-meta">Kitchen pantry · Video walkthrough · Kaysville, UT</span></figcaption>
+          </figure>
+          <!-- Video item: custom closet for our daughter (empty closet, then the finished reveal).
+               Captions: add <track kind="captions" src="assets/video/daughter-closet.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
+          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
+            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
+                   poster="assets/images/gallery/daughter-closet-poster.webp"
+                   aria-label="Video: custom closet built by Fox &amp; Fable">
+              <source src="assets/video/daughter-closet.webm" type="video/webm">
+              <source src="assets/video/daughter-closet.mp4" type="video/mp4">
+              <p>Your browser doesn't support embedded video. <a href="assets/video/daughter-closet.mp4">Download the closet video (MP4)</a>.</p>
+            </video>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Closet · Designer walk-in closet video · Kaysville, UT</span></figcaption>
+          </figure>
+          <!-- Video item: his & her closets (finished walk-in). -->
+          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
+            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
+                   poster="assets/images/gallery/his-her-closets-poster.webp"
+                   aria-label="Video: his and her custom closets built by Fox &amp; Fable">
+              <source src="assets/video/his-her-closets.webm" type="video/webm">
+              <source src="assets/video/his-her-closets.mp4" type="video/mp4">
+              <p>Your browser doesn't support embedded video. <a href="assets/video/his-her-closets.mp4">Download the closet video (MP4)</a>.</p>
+            </video>
+            <div class="gallery-set" id="his-her-before" hidden>
+              <a href="assets/images/gallery/his-her-closets-before-1.webp" data-width="1200" data-height="1600" data-label="Before"
+                 data-alt="Before: the empty walk-in closet with basic wire shelving and rods beside a window">Before 1</a>
+              <a href="assets/images/gallery/his-her-closets-before-2.webp" data-width="1200" data-height="1600" data-label="Before"
+                 data-alt="Before: the same empty closet looking toward the bathroom doorway, with bare walls and wire rods">Before 2</a>
+            </div>
+            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Walk-in closets · Designer his &amp; her closets · Kaysville, UT</span>
+              <button class="before-btn" type="button" data-before-set="his-her-before">See the before (2 photos)</button></figcaption>
+          </figure>
           <!-- Photo-set item: Kaysville kitchen pantry (the Color Drench pantry). Cover = finished close-up; the set runs finished → "In progress" build photos → Before.
                The walkthrough video of the same pantry follows as its own tile. -->
           <figure class="gallery-item photo ratio-portrait" data-category="pantries">
@@ -140,18 +182,6 @@
             </div>
             <figcaption><span class="gallery-cat">Pantry</span> <span class="gallery-meta">Kitchen pantry · Fluted cabinetry &amp; arched entry · Kaysville, UT</span></figcaption>
           </figure>
-          <!-- Video item: Color Drench custom pantry (self-hosted; plays inline, not in the lightbox).
-               Captions: add <track kind="captions" src="assets/video/custom-pantry.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
-          <figure class="gallery-item photo ratio-reel video-item" data-category="pantries">
-            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
-                   poster="assets/images/gallery/pantry-poster.webp"
-                   aria-label="Video: Color Drench custom pantry built by Fox &amp; Fable">
-              <source src="assets/video/custom-pantry.webm" type="video/webm">
-              <source src="assets/video/custom-pantry.mp4" type="video/mp4">
-              <p>Your browser doesn't support embedded video. <a href="assets/video/custom-pantry.mp4">Download the pantry video (MP4)</a>.</p>
-            </video>
-            <figcaption><span class="gallery-cat">Pantry</span> <span class="gallery-meta">Kitchen pantry · Video walkthrough · Kaysville, UT</span></figcaption>
-          </figure>
           <!-- Photo-set item: Kaysville designer walk-in closet (the same closet as the video below). Cover = finished hanging wall; the set runs finished → "Design" renderings → "In progress" build photos → Before.
                Framed photos of people in photo 4 are blurred (kids are kept off the site). -->
           <figure class="gallery-item photo ratio-portrait" data-category="closets">
@@ -192,36 +222,6 @@
                  data-alt="Before: the empty walk-in closet with bare walls, carpet, and basic wire shelves and rods on both sides">Before</a>
             </div>
             <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Closet · Designer walk-in closet with vanity · Kaysville, UT</span></figcaption>
-          </figure>
-          <!-- Video item: custom closet for our daughter (empty closet, then the finished reveal).
-               Captions: add <track kind="captions" src="assets/video/daughter-closet.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
-          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
-            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
-                   poster="assets/images/gallery/daughter-closet-poster.webp"
-                   aria-label="Video: custom closet built by Fox &amp; Fable">
-              <source src="assets/video/daughter-closet.webm" type="video/webm">
-              <source src="assets/video/daughter-closet.mp4" type="video/mp4">
-              <p>Your browser doesn't support embedded video. <a href="assets/video/daughter-closet.mp4">Download the closet video (MP4)</a>.</p>
-            </video>
-            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Closet · Designer walk-in closet video · Kaysville, UT</span></figcaption>
-          </figure>
-          <!-- Video item: his & her closets (finished walk-in). -->
-          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
-            <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
-                   poster="assets/images/gallery/his-her-closets-poster.webp"
-                   aria-label="Video: his and her custom closets built by Fox &amp; Fable">
-              <source src="assets/video/his-her-closets.webm" type="video/webm">
-              <source src="assets/video/his-her-closets.mp4" type="video/mp4">
-              <p>Your browser doesn't support embedded video. <a href="assets/video/his-her-closets.mp4">Download the closet video (MP4)</a>.</p>
-            </video>
-            <div class="gallery-set" id="his-her-before" hidden>
-              <a href="assets/images/gallery/his-her-closets-before-1.webp" data-width="1200" data-height="1600" data-label="Before"
-                 data-alt="Before: the empty walk-in closet with basic wire shelving and rods beside a window">Before 1</a>
-              <a href="assets/images/gallery/his-her-closets-before-2.webp" data-width="1200" data-height="1600" data-label="Before"
-                 data-alt="Before: the same empty closet looking toward the bathroom doorway, with bare walls and wire rods">Before 2</a>
-            </div>
-            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Walk-in closets · Designer his &amp; her closets · Kaysville, UT</span>
-              <button class="before-btn" type="button" data-before-set="his-her-before">See the before (2 photos)</button></figcaption>
           </figure>
           <!-- Photo-set item: playhouse. Cover = finished; the lightbox set runs After → Detail → Before. -->
           <figure class="gallery-item photo ratio-portrait" data-category="playhouses">
