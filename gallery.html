@@ -75,7 +75,7 @@
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h1 id="gallery-title">Project Gallery</h1>
-        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, offices &amp; flex rooms, laundry rooms, and commercial spaces. The other slots are placeholders.</p>
+        <p class="lede">Completed playhouses, bunk rooms, closets &amp; built-ins, bedrooms, living spaces, offices &amp; flex rooms, laundry rooms, pantries, and commercial spaces. The other slots are placeholders.</p>
       </div>
     </section>
 
@@ -91,14 +91,58 @@
           <button class="filter-btn" type="button" data-filter="living-spaces" aria-pressed="false">Living Spaces</button>
           <button class="filter-btn" type="button" data-filter="offices" aria-pressed="false">Offices &amp; Flex Rooms</button>
           <button class="filter-btn" type="button" data-filter="laundry" aria-pressed="false">Laundry Rooms</button>
+          <button class="filter-btn" type="button" data-filter="pantries" aria-pressed="false">Pantries</button>
           <button class="filter-btn" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
         </div>
         <p class="gallery-status" id="gallery-status" role="status" aria-live="polite"></p>
 
         <div class="gallery-grid" id="gallery-grid">
+          <!-- Photo-set item: Kaysville kitchen pantry (the Color Drench pantry). Cover = finished close-up; the set runs finished → "In progress" build photos → Before.
+               The walkthrough video of the same pantry follows as its own tile. -->
+          <figure class="gallery-item photo ratio-portrait" data-category="pantries">
+            <a class="gallery-link" href="assets/images/gallery/pantry-ks-1.webp" data-width="1320" data-height="1760">
+              <picture>
+                <source type="image/webp" srcset="assets/images/gallery/pantry-ks-1-card-480.webp 480w, assets/images/gallery/pantry-ks-1-card-960.webp 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)">
+                <img src="assets/images/gallery/pantry-ks-1-card-480.jpg" srcset="assets/images/gallery/pantry-ks-1-card-480.jpg 480w, assets/images/gallery/pantry-ks-1-card-960.jpg 960w" sizes="(min-width: 1100px) 384px, (min-width: 720px) calc(50vw - 2rem), calc(100vw - 2.5rem)" width="480" height="600" loading="lazy" decoding="async"
+                     alt="Finished walk-in kitchen pantry in deep blue-gray: fluted cabinet doors with brass pulls, open corner shelves, a counter with a framed landscape print, a pleated lamp and a spice rack under soft under-cabinet lighting">
+              </picture>
+            </a>
+            <span class="set-count" aria-hidden="true">15 photos</span>
+            <div class="gallery-set" hidden>
+              <a href="assets/images/gallery/pantry-ks-2.webp" data-width="1320" data-height="1760"
+                 data-alt="The finished pantry seen in daylight through the arched doorway from the kitchen, with dark fluted cabinets, a globe ceiling light, and the counter on the left">Photo 2</a>
+              <a href="assets/images/gallery/pantry-ks-3.webp" data-width="1320" data-height="1760"
+                 data-alt="The finished pantry at night through the arched doorway: dim, moody blue-black cabinetry lit by under-cabinet lights along the counter">Photo 3</a>
+              <a href="assets/images/gallery/pantry-ks-4.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: dark beadboard paneling on the empty pantry walls, with drills and tools on the floor">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-5.webp" data-width="1320" data-height="990" data-label="In progress"
+                 data-alt="In progress: the cabinet boxes being spray-painted in the garage, masked off under plastic sheeting, with a ladder nearby">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-6.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: the painted cabinet units dry-fit together in the dining area before installation, with unfinished wood interiors">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-7.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: the lower cabinets being built against the dark beadboard, with tools and a level on the counter">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-8.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: dark cabinet frames installed on every wall, with the shelf interiors still bare wood">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-9.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: straight-on view of the new arch framing built around the pantry doorway, with the cabinets visible inside">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-10.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: arch framing blocks around the pantry opening beside the refrigerator">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-11.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: the arched doorway roughed in and covered in drywall mud, next to the refrigerator">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-12.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: looking out from inside the pantry through the mudded arch to the kitchen island">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-13.webp" data-width="1320" data-height="990" data-label="In progress"
+                 data-alt="In progress: the fluted cabinet doors laid out on plastic and spray-painted dark blue-gray">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-14.webp" data-width="1320" data-height="1760" data-label="In progress"
+                 data-alt="In progress: the pantry back in use with stocked shelves, unpainted fluted doors leaning in place, and a step stool">In progress</a>
+              <a href="assets/images/gallery/pantry-ks-before.webp" data-width="1320" data-height="1760" data-label="Before"
+                 data-alt="Before: the original pantry with plain white wire and melamine shelving on every wall">Before</a>
+            </div>
+            <figcaption><span class="gallery-cat">Pantry</span> <span class="gallery-meta">Kitchen pantry · Fluted cabinetry &amp; arched entry · Kaysville, UT</span></figcaption>
+          </figure>
           <!-- Video item: Color Drench custom pantry (self-hosted; plays inline, not in the lightbox).
                Captions: add <track kind="captions" src="assets/video/custom-pantry.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
-          <figure class="gallery-item photo ratio-reel video-item" data-category="closets">
+          <figure class="gallery-item photo ratio-reel video-item" data-category="pantries">
             <video class="gallery-video" controls preload="none" playsinline width="608" height="1080"
                    poster="assets/images/gallery/pantry-poster.webp"
                    aria-label="Video: Color Drench custom pantry built by Fox &amp; Fable">
@@ -106,7 +150,7 @@
               <source src="assets/video/custom-pantry.mp4" type="video/mp4">
               <p>Your browser doesn't support embedded video. <a href="assets/video/custom-pantry.mp4">Download the pantry video (MP4)</a>.</p>
             </video>
-            <figcaption><span class="gallery-cat">Closets &amp; Built-ins</span> <span class="gallery-meta">Custom pantry · Color Drench · Kaysville, UT</span></figcaption>
+            <figcaption><span class="gallery-cat">Pantry</span> <span class="gallery-meta">Kitchen pantry · Video walkthrough · Kaysville, UT</span></figcaption>
           </figure>
           <!-- Video item: custom closet for our daughter (empty closet, then the finished reveal).
                Captions: add <track kind="captions" src="assets/video/daughter-closet.en.vtt" srclang="en" label="English"> when a .vtt exists. -->
