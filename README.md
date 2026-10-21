@@ -1,7 +1,7 @@
 # Fox & Fable · Website
 
 A hand-coded, responsive three-page site for **Fox & Fable, LLC**, a concept-stage design-build studio in
-Kaysville, Utah that makes bespoke, heirloom-quality indoor playhouses and bunk rooms.
+the Greater Salt Lake Area, Utah, that makes bespoke, heirloom-quality indoor playhouses and bunk rooms.
 **Fox & Fable Design + Construction.** *Playful Spaces. Timeless Memories.*
 
 > **Status:** design mockup / portfolio project. Apart from the family photos and finished project media, all imagery is placeholder art.
